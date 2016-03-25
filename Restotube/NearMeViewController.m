@@ -1,0 +1,190 @@
+//
+//  NearMeViewController.m
+//  Restotube
+//
+//  Created by user on 03.08.15.
+//  Copyright (c) 2015 Maksim Kis. All rights reserved.
+//
+
+#import "NearMeViewController.h"
+#import "UIAlertView+AFNetworking.h"
+
+#import "RestaurantsDetailViewController.h"
+
+#import "RestaurantsViewCell.h"
+#import "MapsInstance.h"
+#import <CoreLocation/CoreLocation.h>
+
+
+@interface NearMeViewController () <UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>
+{
+    CLLocation *_myLocation;
+    BOOL _updated;
+    
+}
+@property (nonatomic, strong) NSArray *restaurants;
+@property (nonatomic, strong) NSMutableArray *sortedRestaurants;
+@property (nonatomic, strong) NSArray *sortedDistanse;
+@property (nonatomic,retain) UIActivityIndicatorView *activityIndicatorObject;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic,strong) CLLocationManager *locationManager;
+
+@end
+
+@implementation NearMeViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"head-line"]];
+    _tableView.backgroundColor = [UIColor clearColor];
+    _locationManager = [[CLLocationManager alloc]init]; // initializing locationManager
+    _locationManager.delegate = self; // we set the delegate of locationManager to self.
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest; // setting the accuracy
+    
+    [_locationManager startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error retrieving your location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [errorAlert show];
+    NSLog(@"Error: %@",error.description);
+}
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    _myLocation = [locations lastObject];
+    if (_myLocation) {
+        [_locationManager stopUpdatingLocation];
+    }
+    if (!_updated)
+    {
+        [self prepeareSorted];
+        _updated = YES;
+        [_tableView reloadData];
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self reloadData];
+}
+
+- (void)reloadData
+{
+    _activityIndicatorObject = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _activityIndicatorObject.alpha = 1.0;
+    CGSize sizeOfScreen = [[UIScreen mainScreen] bounds].size;
+    _activityIndicatorObject.center = CGPointMake(sizeOfScreen.width / 2, sizeOfScreen.height / 2 - _activityIndicatorObject.bounds.size.height);
+    [self.view addSubview:_activityIndicatorObject];
+    [_activityIndicatorObject  startAnimating];
+    _activityIndicatorObject.layer.zPosition = 2;
+    _activityIndicatorObject.backgroundColor = [UIColor clearColor];
+    _activityIndicatorObject.color = [UIColor colorWithRed:204/255.0 green:50/255.0 blue:101/255.0 alpha:1];
+     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    
+    
+    CGFloat scaleFactor=[[UIScreen mainScreen] scale];
+    float height = 154 * scaleFactor;
+    float width  = [[UIScreen mainScreen] applicationFrame].size.width * scaleFactor;
+    
+    NSURLSessionTask *task = [Restaurants restaurantsWithBlock:width: height: 0: 100 : ^(NSArray *categories, NSError *error) {
+        if (!error) {
+            self.restaurants = categories;
+            _updated = NO;
+            if (_myLocation)
+            {
+                [self prepeareSorted];
+                _updated = YES;
+                [_tableView reloadData];
+            }
+        }
+        [_activityIndicatorObject  stopAnimating];
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+    }];
+    
+    [UIAlertView showAlertViewForTaskWithErrorOnCompletion:task delegate:nil];
+}
+
+- (void)prepeareSorted
+{
+    NSMutableDictionary *locations = [NSMutableDictionary new];
+    for(int i = 0 ; i < [self.restaurants count] ; i ++ ) {
+        Restaurants* restaurant = [self.restaurants objectAtIndex:i];
+
+        CLLocationDistance d = MAXFLOAT;
+        for(int j = 0; j < [restaurant.addresses count]; j++) {
+            Addresses* address = [restaurant.addresses objectAtIndex:j];
+            CLLocationCoordinate2D coordinate;
+            coordinate.latitude = [address.lat doubleValue];
+            coordinate.longitude =  [address.lon doubleValue];
+
+            CLLocationDistance distance =  GMSGeometryDistance(_myLocation.coordinate,coordinate);
+            if (d > distance)
+            {
+                d = distance;
+            }
+        }
+        [locations setObject:restaurant forKey:@(d / 1000)];
+    }
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
+    NSArray *sortedKeys = [[locations allKeys] sortedArrayUsingDescriptors:@[descriptor]];
+    
+    self.sortedDistanse = sortedKeys;
+    _sortedRestaurants = [NSMutableArray new];
+    for (NSNumber *key in sortedKeys)
+    {
+        [_sortedRestaurants addObject:[locations objectForKey:key]];
+    }
+}
+
+- (NSInteger) tableView: (UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.sortedRestaurants.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"restaurantsViewCell";
+    
+    RestaurantsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[RestaurantsViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.backgroundColor = [UIColor clearColor];
+    }
+    cell.imageViewBackground.image = nil;
+    [cell setRestaurant:[_sortedRestaurants objectAtIndex:(NSUInteger) indexPath.row]];
+    cell.labelDistance.text = @"";
+    
+    
+    NSArray* addresses = cell.restaurantInfo.addresses;
+    if([addresses count])
+    {
+        NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
+        [fmt setPositiveFormat:@"0.#"];
+        NSString* format = [ NSString stringWithFormat:@"%@ км", [fmt stringFromNumber:_sortedDistanse[indexPath.row]]];
+        cell.labelDistance.text = format;
+    }
+    else {
+        cell.labelDistance.text = @"...";
+    }
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{    
+    Restaurants *category = self.sortedRestaurants[indexPath.row];
+    [self performSegueWithIdentifier:@"restaurantsDetailSegue" sender:category];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"restaurantsDetailSegue"])
+    {
+        RestaurantsDetailViewController *controller = (RestaurantsDetailViewController *)segue.destinationViewController;
+        controller.restaurants = (Restaurants *)sender;
+    }
+}
+
+@end

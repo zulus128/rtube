@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5A0F7298F7A57E33E3AA50CD8196712D1AC28B16",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5A0F7298F7A57E33E3AA50CD8196712D1AC28B16" : 0,
+    "28293A5C4C11777591A980E5816764AEFB69755B" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "ECCB9F63-3192-40D5-9D9C-F6DF89C1EEF4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5A0F7298F7A57E33E3AA50CD8196712D1AC28B16" : "Restotube%20Right",
+    "28293A5C4C11777591A980E5816764AEFB69755B" : "Restotube"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Restotube",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Restotube.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/restotube\/restotube-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "28293A5C4C11777591A980E5816764AEFB69755B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/studiom\/restotube.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5A0F7298F7A57E33E3AA50CD8196712D1AC28B16"
+    }
+  ]
+}

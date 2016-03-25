@@ -1,0 +1,47 @@
+//
+//  Cuisines.m
+//  Restotube
+//
+//  Created by Maksim Kis on 09.04.15.
+//  Copyright (c) 2015 Maksim Kis. All rights reserved.
+//
+
+#import "Cuisines.h"
+#import "RequestManager.h"
+#import "ParseMethods.h"
+
+@implementation Cuisines
+
+- (instancetype)initWithAttributes:(NSDictionary *)attributes {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    
+    self.type_id = [attributes valueForKey:@"id"];
+    self.name = [attributes valueForKey:@"name"];
+    
+    return self;
+}
+
++ (NSURLSessionDataTask *)cuisinesWithBlock:(void (^)(NSArray *, NSError *))block {
+    NSString* urlrequest = [NSString stringWithFormat:@"getCuisines"];
+    
+    return [[RequestManager sharedManager] GET:urlrequest parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+        NSArray *cuisinesFromResponce = JSON;
+        NSMutableArray *mulableCuisines = [NSMutableArray arrayWithCapacity:[cuisinesFromResponce count]];
+        for (NSDictionary *attributes in cuisinesFromResponce) {
+            Cuisines *cuisine = [[Cuisines alloc] initWithAttributes:attributes];
+            [mulableCuisines addObject:cuisine];
+        }
+        
+        if (block) {
+            block([NSArray arrayWithArray:mulableCuisines], nil);
+        }
+    } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+        if (block) {
+            block([NSArray array], error);
+        }
+    }];
+}
+@end

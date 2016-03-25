@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroView1"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2rh-N1-gSk" userLabel="view1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro1" translatesAutoresizingMaskIntoConstraints="NO" id="wu6-kq-HbU">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="354"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="wu6-kq-HbU" secondAttribute="height" multiplier="213:235" id="VHp-v7-alN"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro_logo" translatesAutoresizingMaskIntoConstraints="NO" id="gij-TA-MBz">
+                    <rect key="frame" x="76" y="362" width="169" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="gij-TA-MBz" secondAttribute="height" multiplier="108:23" id="lVr-pK-mMu"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Первый рестораторный  видеогид" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aNt-rY-yGi">
+                    <rect key="frame" x="68" y="418" width="185" height="51"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="aNt-rY-yGi" firstAttribute="top" secondItem="gij-TA-MBz" secondAttribute="bottom" constant="20" id="6xk-iq-Br2"/>
+                <constraint firstItem="wu6-kq-HbU" firstAttribute="top" secondItem="2rh-N1-gSk" secondAttribute="top" id="Lx6-yl-gyD"/>
+                <constraint firstAttribute="centerX" secondItem="aNt-rY-yGi" secondAttribute="centerX" id="QkV-4A-m4d"/>
+                <constraint firstAttribute="centerX" secondItem="gij-TA-MBz" secondAttribute="centerX" id="YLs-vd-cx6"/>
+                <constraint firstItem="gij-TA-MBz" firstAttribute="top" secondItem="wu6-kq-HbU" secondAttribute="bottom" constant="8" id="fly-Hh-9Qj"/>
+                <constraint firstItem="wu6-kq-HbU" firstAttribute="width" secondItem="gij-TA-MBz" secondAttribute="width" multiplier="1.9" id="hfA-Br-Tkt"/>
+                <constraint firstItem="aNt-rY-yGi" firstAttribute="width" secondItem="gij-TA-MBz" secondAttribute="width" multiplier="1.1" id="pcX-hT-xDq"/>
+                <constraint firstItem="wu6-kq-HbU" firstAttribute="leading" secondItem="2rh-N1-gSk" secondAttribute="leading" id="rb6-3a-wW5"/>
+                <constraint firstAttribute="trailing" secondItem="wu6-kq-HbU" secondAttribute="trailing" id="sb8-NG-DKt"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="33" y="-31"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="intro1" width="213" height="235"/>
+        <image name="intro_logo" width="108" height="23"/>
+    </resources>
+</document>
