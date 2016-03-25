@@ -23,6 +23,14 @@
 #define PRODUCT_PRICE_DEFAULT_VALUE       50
 #define PRODUCT_PRICE_EXISTS_PARAM_NAME   @"productPriceExists"
 
+@interface ReservationViewController()
+@property (weak, nonatomic) IBOutlet UIView *discountView;
+@property (weak, nonatomic) IBOutlet UIImageView *infoBubble;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel3;
+
+@end
 
 @implementation ReservationViewController
 {
@@ -84,11 +92,13 @@
         {
             NSString* str = [NSString stringWithFormat:@"Забронировать c подарком"];
             [resrveWithDiscountButton setTitle:str forState:UIControlStateNormal];
+            [resrveButton setHidden:YES];
         }
     }
     else {
         NSString* str = [NSString stringWithFormat:@"Забронировать со скидкой %ld%%", (long)_restaurant.saleint];
         [resrveWithDiscountButton setTitle:str forState:UIControlStateNormal];
+        [resrveButton setHidden:YES];
     }
     
     if (_restaurant.presentDesc.length == 0)
@@ -146,6 +156,11 @@
     nameField.text = cache[@"name"];
     phoneField.text = cache[@"fullPhone"];
     
+    _discountView.hidden = YES;
+    _infoBubble.hidden = YES;
+    _infoLabel1.hidden = YES;
+    _infoLabel2.hidden = YES;
+    _infoLabel3.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -294,41 +309,41 @@
     ((UIButton *)sender).enabled = NO;
     
     NSString *buySale = @"1";
-//    __block NSString *payment_id;
-    NSInteger sum = _numberOfPeople * 50; // fixme : test only
-    BOOL useCard = NO;
-    
-    if ([[Profile getInstance] isProfileLoaded] == YES)
-    {
-        buySale = @"rtmoney";
-        
-        NSInteger balance = [Profile getInstance].m_balance;
-        NSInteger diff = balance - sum;
-        if (diff < 0)
-        { // replenish balance
-//            ReplenishBalanceViewController *vc = [[ReplenishBalanceViewController alloc] init];
-//            vc.minSum = -diff;
-//            [self.navigationController pushViewController:vc animated:YES];
-            
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            ReplenishBalanceViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ReplenishBalanceViewController"];
-            vc.minSum                   = -diff;
-            vc.requiredSum              = sum;
-            vc.dontConfigureBackButton  = YES;
-            vc.delegate                 = self;
-            [self.navigationController pushViewController:vc animated:YES];
-            
-            ((UIButton *)sender).enabled = YES;
-            return;
-        }
-//        else {
+////    __block NSString *payment_id;
+//    NSInteger sum = _numberOfPeople * 50; // fixme : test only
+//    BOOL useCard = NO;
+//    
+//    if ([[Profile getInstance] isProfileLoaded] == YES)
+//    {
+//        buySale = @"rtmoney";
+//        
+//        NSInteger balance = [Profile getInstance].m_balance;
+//        NSInteger diff = balance - sum;
+//        if (diff < 0)
+//        { // replenish balance
+////            ReplenishBalanceViewController *vc = [[ReplenishBalanceViewController alloc] init];
+////            vc.minSum = -diff;
+////            [self.navigationController pushViewController:vc animated:YES];
 //            
+//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//            ReplenishBalanceViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ReplenishBalanceViewController"];
+//            vc.minSum                   = -diff;
+//            vc.requiredSum              = sum;
+//            vc.dontConfigureBackButton  = YES;
+//            vc.delegate                 = self;
+//            [self.navigationController pushViewController:vc animated:YES];
+//            
+//            ((UIButton *)sender).enabled = YES;
+//            return;
 //        }
-    }
-    else {
-        buySale = @"1";
-        useCard = YES;
-    }
+////        else {
+////            
+////        }
+//    }
+//    else {
+//        buySale = @"1";
+//        useCard = YES;
+//    }
     
     NSDictionary *params = @{@"date" : dateString,
                              @"time" : timeString,
@@ -365,41 +380,42 @@
          }
          sendedReservation = reservation;
          
-         if (useCard == YES)
-         {
-             static NSString* const yaMoneyUrl   = YA_MONEY_URL;//@"https://money.yandex.ru/eshop.xml";
-             static NSString* const yaShopId     = YA_MONEY_SHOP_ID;
-             static NSString* const yaScid       = YA_MONEY_SCID;
-                 
-             NSDictionary *params = @{   @"shopId"           : yaShopId,
-                                         @"scid"             : yaScid,
-                                         @"sum"              : reservation.sum,//@(PRODUCT_PRICE_DEFAULT_VALUE),
-                                         //                                @"shopArticleId"    : @"",
-    //                                     @"customerNumber"   : @(123),
-                                         @"orderNumber"      : reservation.payment_id,
-                                         //                                @"cps_email"        : @"",
-                                         //                                @"cps_phone"        : @"",
-                                         @"paymentType"      : @"AC"
-                                         
-                                         };
+//         if (useCard == YES)
+//         {
+//             static NSString* const yaMoneyUrl   = YA_MONEY_URL;//@"https://money.yandex.ru/eshop.xml";
+//             static NSString* const yaShopId     = YA_MONEY_SHOP_ID;
+//             static NSString* const yaScid       = YA_MONEY_SCID;
+//                 
+//             NSDictionary *params = @{   @"shopId"           : yaShopId,
+//                                         @"scid"             : yaScid,
+//                                         @"sum"              : reservation.sum,//@(PRODUCT_PRICE_DEFAULT_VALUE),
+//                                         //                                @"shopArticleId"    : @"",
+//    //                                     @"customerNumber"   : @(123),
+//                                         @"orderNumber"      : reservation.payment_id,
+//                                         //                                @"cps_email"        : @"",
+//                                         //                                @"cps_phone"        : @"",
+//                                         @"paymentType"      : @"AC"
+//                                         
+//                                         };
+//             
+//             NSLog(@"params to send :\n%@", params);
+//             
+//             NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:yaMoneyUrl parameters:params error:nil];
+//             WebViewVC *vc = [WebViewVC new];
+//             vc.delegate        = self;
+//             vc.requestToLoad   = request;
+//             vc.book_id         = reservation.book_id;
+//             [self presentViewController:vc animated:YES completion:nil];
+//         }
+//         else {
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Спасибо, бронь сделана, ожидайте подтверждения в ближайшее время!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [alertView show];
              
-             NSLog(@"params to send :\n%@", params);
-             
-             NSURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:yaMoneyUrl parameters:params error:nil];
-             WebViewVC *vc = [WebViewVC new];
-             vc.delegate        = self;
-             vc.requestToLoad   = request;
-             vc.book_id         = reservation.book_id;
-             [self presentViewController:vc animated:YES completion:nil];
-         }
-         else {
-//             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Вы успешно зарезервировали столик" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//             [alertView show];
              [self performSegueWithIdentifier:@"ReservationResponseSegue" sender:nil];
              
              [self.fadeView removeFromSuperview];
              [[NSNotificationCenter defaultCenter] postNotificationName:NDM_BALANCE_CHANGED object:nil];
-         }
+//         }
          
          ((UIButton *)sender).enabled = YES;
          

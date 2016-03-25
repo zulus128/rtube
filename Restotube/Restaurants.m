@@ -132,6 +132,13 @@
     }
     else
         self.addresses = [NSArray array];
+    
+    NSDictionary *present = attributes[@"present"];
+    if (present != nil) {
+        self.presentDesc = stringValue(present[@"desc"]);
+        self.presentImg = stringValue(present[@"img"]);
+    }
+    
     return self;
 }
 

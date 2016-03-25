@@ -11,6 +11,11 @@
 #import "MapsInstance.h"
 #import "RequestManager.h"
 
+@interface RestaurantsViewCell()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageDiscountWidth;
+
+@end
+
 @implementation RestaurantsViewCell
 
 - (void) dealloc
@@ -73,12 +78,18 @@
     
     if([restaurant.sale isEqualToString:@""] == false) {
         self.labelDiscount.text = restaurant.sale;
+        _imageDiscountWidth.constant = 88;
     }
-    else {
+    else if(restaurant.presentDesc && ![restaurant.presentDesc isEqualToString:@""]) {
+        self.labelDiscount.text = restaurant.presentDesc;
+        
+        NSDictionary *attributes = @{NSFontAttributeName: self.labelDiscount.font};
+        CGRect textRect = [restaurant.presentDesc boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 25) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
+        _imageDiscountWidth.constant = textRect.size.width + 20;
+    } else {
         self.labelDiscount.hidden = true;
         self.imageDiscount.hidden = true;
     }
-
 
     NSURL *assetsBaseUrl = [RequestManager sharedManager].assetsBaseUrl;
     NSURL *imageUrl = [[NSURL alloc] initWithString:restaurant.img relativeToURL:assetsBaseUrl];
