@@ -25,6 +25,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+- (void)registerTokenOnServer;
 
 @property (readonly, assign, nonatomic) BOOL isFirstTimeLaunch;
 

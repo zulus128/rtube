@@ -26,6 +26,8 @@
 @property (nonatomic, assign) NSInteger m_sex;
 @property (nonatomic, assign) BOOL isProfileLoaded;
 
+@property (nonatomic, strong) NSString *pushToken;
+
 + (Profile*)getInstance;
 - (void)initWithAttributes:(NSDictionary *)attributes;
 - (NSURLSessionDataTask *)profileRecoveryWithBlock: (NSString *) phone : (void (^)(BOOL is_ok, NSError *error))block;

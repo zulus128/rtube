@@ -9,6 +9,7 @@
 #import "Profile.h"
 #import "RequestManager.h"
 #import <Foundation/Foundation.h>
+#import "AppDelegate.h"
 
 static Profile* s_Profile = nil;
 
@@ -31,6 +32,10 @@ static Profile* s_Profile = nil;
 }
 
 - (void)initWithAttributes:(NSDictionary *)attributes {
+    
+    NSLog(@"--- %@", attributes);
+    NSLog(@"+++ %@", self.pushToken);
+    
     if ([attributes valueForKey:@"hash"] && [attributes valueForKey:@"hash"] != [NSNull null])
         self.m_hash = [attributes valueForKey:@"hash"];
     else
@@ -106,6 +111,8 @@ static Profile* s_Profile = nil;
          self.isProfileLoaded = YES;
     }
     
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate registerTokenOnServer];
 }
 
 - (NSURLSessionDataTask *)profileRecoveryWithBlock: (NSString *) phone : (void (^)(BOOL is_ok, NSError *error))block {

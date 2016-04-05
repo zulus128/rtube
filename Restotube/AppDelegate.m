@@ -11,6 +11,10 @@
 #import "ConstantsManager.h"
 #import "IntroViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "Profile.h"
+#import "RequestManager.h"
+
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
 @interface AppDelegate ()
 
@@ -48,6 +52,18 @@
         [self.window makeKeyAndVisible];
     }
     
+    if (SYSTEM_VERSION_LESS_THAN(@"8.0")) {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge |
+                                                                                UIRemoteNotificationTypeSound |
+                                                                                UIRemoteNotificationTypeAlert)];
+    } else {
+        UIUserNotificationSettings *settings =  [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound |
+                                                                                              UIUserNotificationTypeAlert |
+                                                                                              UIUserNotificationTypeBadge) categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+
     return YES;
 }
 
@@ -160,6 +176,43 @@
             abort();
         }
     }
+}
+
+#pragma mark - Push notifications
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken  {
+    NSString *tokenString = [[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                              stringByReplacingOccurrencesOfString: @">" withString: @""]
+                             stringByReplacingOccurrencesOfString: @" " withString: @""];
+    NSLog(@"Successfully got token: %@", tokenString);
+    [Profile getInstance].pushToken = tokenString;
+    [self registerTokenOnServer];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Failed to get token, error: %@", error);
+}
+
+- (void)registerTokenOnServer {
+
+    Profile *prof = [Profile getInstance];
+    NSLog(@"--- user_id=%@ device_token=%@", prof.m_id, prof.pushToken);
+    
+    if (!prof.pushToken || !prof.m_id) {
+        return;
+    }
+    NSString* urlrequest = [NSString stringWithFormat:@"setDeviceToken?user_id=%@&device_token=%@", prof.m_id, prof.pushToken];
+
+    [[RequestManager sharedManager] GET:urlrequest parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON) {
+         NSLog(@"registerTokenOnServer Success: %@", JSON);
+         
+     } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+         NSLog(@"registerTokenOnServer Error: %@", error);
+     }];
+
 }
 
 @end
