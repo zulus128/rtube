@@ -42,7 +42,7 @@
                         }
                         completion:NULL];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        NSLog(@"error: %@", error);
+        NSLog(@"error5: %@", error);
     }];
     
     
@@ -58,7 +58,7 @@
                         }
                         completion:NULL];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        NSLog(@"error: %@", error);
+        NSLog(@"error6: %@", error);
     }];
 
     [self setNeedsLayout];

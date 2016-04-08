@@ -187,6 +187,7 @@
     NSString *tokenString = [[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]
                               stringByReplacingOccurrencesOfString: @">" withString: @""]
                              stringByReplacingOccurrencesOfString: @" " withString: @""];
+//    NSLog(@"-Successfully got token: %@", deviceToken);
     NSLog(@"Successfully got token: %@", tokenString);
     [Profile getInstance].pushToken = tokenString;
     [self registerTokenOnServer];

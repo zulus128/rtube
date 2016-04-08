@@ -71,7 +71,7 @@
          }
                                              failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error)
          {
-             NSLog(@"error: %@", error);
+             NSLog(@"error2: %@", error);
          }];
     }
 
@@ -117,7 +117,7 @@
         NSLog(@"Success: %@", responseObject);
         isPhotoSending = NO;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error: %@", error);
+        NSLog(@"error3: %@", error);
         [[[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Не удалось загрузить изображение" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
         [self deletePhotoPressed:nil];
         isPhotoSending = NO;
@@ -162,7 +162,7 @@
                         [self.navigationController popViewControllerAnimated:YES];
                     
                 } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
-                    NSLog(@"error: %@", error);
+                    NSLog(@"error4: %@", error);
                 }];
     }
     else

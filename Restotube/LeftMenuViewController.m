@@ -143,7 +143,7 @@
          self.imageAvatar.layer.borderWidth  = 0;
      }
                                      failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                         NSLog(@"error: %@", error);
+                                         NSLog(@"error8: %@", error);
                                      }];
     
     self.labelBalance.text = [NSString stringWithFormat: @"%ld руб.", (long)[[Profile getInstance] m_balance]];

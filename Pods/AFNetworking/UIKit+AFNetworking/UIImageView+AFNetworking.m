@@ -125,7 +125,7 @@
                        failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure
 {
     [self cancelImageRequestOperation];
-
+    
     UIImage *cachedImage = [[[self class] sharedImageCache] cachedImageForRequest:urlRequest];
     if (cachedImage) {
         if (success) {
@@ -163,6 +163,7 @@
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             if ([[urlRequest URL] isEqual:[strongSelf.af_imageRequestOperation.request URL]]) {
                 if (failure) {
+                    NSLog(@"=== %@", urlRequest);
                     failure(urlRequest, operation.response, error);
                 }
 

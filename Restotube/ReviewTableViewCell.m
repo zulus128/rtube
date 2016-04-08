@@ -114,7 +114,7 @@
          }
                                            failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error)
          {
-             NSLog(@"error: %@", error);
+             NSLog(@"error12: %@", error);
          }];
     }
     
@@ -145,7 +145,7 @@
              }
                                                   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error)
              {
-                 NSLog(@"error: %@", error);
+                 NSLog(@"error13: %@", error);
              }];
         }
         else

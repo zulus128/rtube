@@ -37,7 +37,7 @@
     }
                                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error)
     {
-        NSLog(@"error: %@", error);
+        NSLog(@"error7: %@", error);
     }];
 
     _playButton.hidden = indexPath.row != 0;
