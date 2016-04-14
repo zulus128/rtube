@@ -50,6 +50,7 @@
 {
     [super viewDidLoad];
     
+//    NSLog(@"--- %@", [Profile getInstance].m_phone);
     // tap to remove keyboard
     tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)];
     tapGestureRecognizer.cancelsTouchesInView = NO;
@@ -154,7 +155,9 @@
     NSDictionary *cache = [[NSUserDefaults standardUserDefaults] objectForKey:@"kReserveCache"];
     surnameField.text = cache[@"surname"];
     nameField.text = cache[@"name"];
-    phoneField.text = cache[@"fullPhone"];
+    phoneField.text = [self profilePhone] ? [self profilePhone] : cache[@"fullPhone"];
+    phoneField.enabled = ![self profilePhone];
+    phoneField.textColor = [self profilePhone] ? [UIColor grayColor] : [UIColor blackColor];
     
     _discountView.hidden = YES;
     _infoBubble.hidden = YES;
@@ -408,9 +411,9 @@
 //             [self presentViewController:vc animated:YES completion:nil];
 //         }
 //         else {
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Спасибо, бронь сделана, ожидайте подтверждения в ближайшее время!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-             [alertView show];
-             
+
+         [self showSuccessDialog];
+         
              [self performSegueWithIdentifier:@"ReservationResponseSegue" sender:nil];
              
              [self.fadeView removeFromSuperview];
@@ -479,6 +482,11 @@
      }];
 }
 
+- (void)showSuccessDialog {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@, Ваш заказ принят! \n Ожидайте подтверждения в ближайшее время! \n Живите вкусно с RestoTube!", nameField.text] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
+}
+
 - (void)onBuyed
 {
     if (sendedReservation != nil)
@@ -512,6 +520,18 @@
 
     [Reservation sendReserveRequest:params
                      WithCompletion:^(Reservation *reservation, NSError *error) {
+                         if (error) {
+                             NSLog(@"Reservation error: %@", error);
+                             [[[UIAlertView alloc] initWithTitle:@"Ошибка бронирования"
+                                                         message:error.userInfo[@"errors"] ?: error.localizedRecoverySuggestion ?: error.localizedDescription
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil] show];
+                             [self.fadeView removeFromSuperview];
+                             ((UIButton *)sender).enabled = YES;
+                             return;
+                         }
+                         [self showSuccessDialog];
                          sendedReservation = reservation;
                          [self performSegueWithIdentifier:@"ReservationResponseSegue" sender:nil];
                      }];
@@ -528,6 +548,14 @@
     }
     
     return @"";
+}
+
+- (NSString *)profilePhone {
+    
+    if(![Profile getInstance].m_phone)
+        return nil;
+    NSString *s = [NSString stringWithFormat:@"+%@(%@) %@", [[Profile getInstance].m_phone substringToIndex:1], [[Profile getInstance].m_phone substringWithRange:NSMakeRange(1, 3)], [[Profile getInstance].m_phone substringWithRange:NSMakeRange(4, 7)]];
+    return s;
 }
 
 #pragma mark - auxiliary

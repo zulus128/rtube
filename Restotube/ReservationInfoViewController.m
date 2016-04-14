@@ -7,8 +7,10 @@
 //
 
 #import "ReservationInfoViewController.h"
+#import "AFNetworking.h"
 
 @interface ReservationInfoViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @end
 
@@ -62,6 +64,9 @@
     returnButton.layer.borderWidth = 1;
     returnButton.layer.borderColor = [UIColor whiteColor].CGColor;
     
+    _cancelButton.layer.cornerRadius = 4;
+    _cancelButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    _cancelButton.layer.borderWidth = 1;
    
 }
 
@@ -90,6 +95,22 @@
 - (IBAction)onReturn:(id)sender
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (IBAction)cancelButtonClicked:(id)sender {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *params = @{   @"book_id"           : _reservation.reservation_id,
+                                @"status"             : @4,
+                                };
+    NSLog(@"params to send :\n%@", params);
+    [manager POST:@"http://restotube.ru/api/setBookStatus" parameters:params
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"=== Success: %@", responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"=== Error: %@", error);
+    }];
 }
 
 NSString * StringForNumber(int number)

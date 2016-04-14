@@ -40,8 +40,12 @@
 
     [self.tableView setAllowsSelection:YES];
     [self.navigationItem setTitle:@"Брони"];
-    [self reload:nil];
+//    [self reload:nil];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self reload:nil];
 }
 
 - (NSInteger)tableView:(__unused UITableView *)tableView numberOfRowsInSection:(__unused NSInteger)section {

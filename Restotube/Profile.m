@@ -33,8 +33,8 @@ static Profile* s_Profile = nil;
 
 - (void)initWithAttributes:(NSDictionary *)attributes {
     
-    NSLog(@"--- %@", attributes);
-    NSLog(@"+++ %@", self.pushToken);
+//    NSLog(@"--- %@", attributes);
+//    NSLog(@"+++ %@", self.pushToken);
     
     if ([attributes valueForKey:@"hash"] && [attributes valueForKey:@"hash"] != [NSNull null])
         self.m_hash = [attributes valueForKey:@"hash"];

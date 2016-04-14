@@ -64,6 +64,8 @@
         [[UIApplication sharedApplication] registerForRemoteNotifications];
     }
 
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+
     return YES;
 }
 
@@ -181,6 +183,7 @@
 #pragma mark - Push notifications
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken  {
