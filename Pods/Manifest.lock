@@ -20,7 +20,10 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Crashlytics (3.7.0):
+    - Fabric (~> 1.6.3)
   - DACircularProgress (2.3.1)
+  - Fabric (1.6.7)
   - Google-Maps-iOS-SDK (1.9.2)
   - MBProgressHUD (0.9.1)
   - MWPhotoBrowser (1.4.1):
@@ -40,6 +43,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - Crashlytics
+  - Fabric
   - Google-Maps-iOS-SDK
   - MWPhotoBrowser
   - RESideMenu (~> 4.0.7)
@@ -50,8 +55,10 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  Google-Maps-iOS-SDK: 4c008abdb68e03ae125c7f674be841d369e2b3de
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  Google-Maps-iOS-SDK: 7f89cc1edb3ca239a410e5bc83cd1e060db3a289
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MWPhotoBrowser: 2531e682860d62b8a7ba8659de02eb9040e431e5
   PSTCollectionView: 6749df92885353521f55279a7ce2b293762e2be4
@@ -62,4 +69,4 @@ SPEC CHECKSUMS:
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   TTTAttributedLabel: 6f3174aef8e738f44dff97c2eb7d8184f6ab6277
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.39.0

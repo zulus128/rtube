@@ -13,6 +13,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "Profile.h"
 #import "RequestManager.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
@@ -65,6 +67,8 @@
     }
 
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+
+    [Fabric with:@[[Crashlytics class]]];
 
     return YES;
 }

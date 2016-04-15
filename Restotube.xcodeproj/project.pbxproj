@@ -653,6 +653,8 @@
 				6519F5C91ACA4C65004434A3 /* Frameworks */,
 				6519F5CA1ACA4C65004434A3 /* Resources */,
 				09B3377D180ECC05991187AC /* Copy Pods Resources */,
+				560B8B2F57BAE56496AB3147 /* Embed Pods Frameworks */,
+				7E69D63A1CC0D44D006D885D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -775,6 +777,34 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		560B8B2F57BAE56496AB3147 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E69D63A1CC0D44D006D885D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 61b97f836813051adca5ca79f27795ff58da96c5 cb21e610491f28b17202b44e90ce49c8b896a6a18bfa739a6f1d93aedfae1078";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1015,7 +1045,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.resto.tube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3f975195-774c-453c-bc80-f9da53e079dd";
+				PROVISIONING_PROFILE = "29e3427b-6069-48eb-b3e1-dea287ba5082";
 			};
 			name = Debug;
 		};
@@ -1033,7 +1063,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.resto.tube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3f975195-774c-453c-bc80-f9da53e079dd";
+				PROVISIONING_PROFILE = "29e3427b-6069-48eb-b3e1-dea287ba5082";
 			};
 			name = Release;
 		};

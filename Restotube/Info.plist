@@ -30,7 +30,21 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1315</string>
+	<string>1317</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>61b97f836813051adca5ca79f27795ff58da96c5</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

@@ -63,6 +63,7 @@
     BookList* reservation = [self.reservations objectAtIndex:indexPath.row];
     cell.labelName.text = reservation.resto;
     
+//    NSLog(@"--- %@ %@", reservation.status_id, reservation.status_name);
     
     // Convert string to date object
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -77,9 +78,27 @@
     
     cell.labelDateCount.text = string;
     
-    cell.contentView.backgroundColor = indexPath.row % 2 == 0 ?
-                                            [UIColor whiteColor] :
-                                            [UIColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
+    UIColor *col = [UIColor whiteColor];
+    switch (reservation.status_id.intValue) {
+        case 1:
+            col = [UIColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
+            break;
+        case 2:
+            col = [UIColor colorWithRed:230.0f/255.0f green:255.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
+            break;
+        case 3:
+            col = [UIColor whiteColor];
+            break;
+        case 4:
+            col = [UIColor colorWithRed:255.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
+            break;
+    }
+    
+    cell.contentView.backgroundColor = col;
+    
+//    cell.contentView.backgroundColor = indexPath.row % 2 == 0 ?
+//                                            [UIColor whiteColor] :
+//                                            [UIColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
 
     return cell;
 }

@@ -2943,13 +2943,13 @@
                                     <action selector="reserveWithDiscountPressed:" destination="FXD-pi-sgv" eventType="touchUpInside" id="yNm-WL-cOX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcb-W9-Ico">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcb-W9-Ico">
                                 <rect key="frame" x="33" y="483" width="254" height="38"/>
                                 <color key="backgroundColor" red="0.37254901960784315" green="0.37647058823529411" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="BpP-7X-vZe"/>
                                 </constraints>
-                                <state key="normal" title="Забронировать">
+                                <state key="normal" title="Бронь временно недоступна">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
