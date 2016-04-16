@@ -23,7 +23,20 @@
 - (void)reload:(__unused id)sender {
     NSURLSessionTask *task = [BookList reservationsWithBlock: ^(NSArray *reservations, NSError *error) {
         if (!error) {
-            self.reservations = reservations;
+            
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSArray *sorted = [reservations sortedArrayUsingComparator:^(id obj1, id obj2){
+                if ([obj1 isKindOfClass:[BookList class]] && [obj2 isKindOfClass:[BookList class]]) {
+                    BookList *s1 = obj1;
+                    BookList *s2 = obj2;
+                    NSDate *date1 = [dateFormat dateFromString:s1.datetime];
+                    NSDate *date2 = [dateFormat dateFromString:s2.datetime];
+                    return [date2 compare:date1];
+                }
+                return (NSComparisonResult)NSOrderedSame;
+            }];
+            self.reservations = sorted;
             [self.tableView reloadData];
         }
     }];

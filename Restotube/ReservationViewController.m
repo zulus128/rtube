@@ -414,8 +414,8 @@
 
          [self showSuccessDialog];
          
-             [self performSegueWithIdentifier:@"ReservationResponseSegue" sender:nil];
-             
+//             [self performSegueWithIdentifier:@"ReservationResponseSegue" sender:nil];
+         
              [self.fadeView removeFromSuperview];
              [[NSNotificationCenter defaultCenter] postNotificationName:NDM_BALANCE_CHANGED object:nil];
 //         }
@@ -483,7 +483,7 @@
 }
 
 - (void)showSuccessDialog {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@, Ваш заказ принят! \n Ожидайте подтверждения в ближайшее время! \n Живите вкусно с RestoTube!", nameField.text] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@, Ваш заказ принят! \n Ожидайте подтверждения по СМС в ближайшее время! \n Живите вкусно с RestoTube!", nameField.text] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
 }
 
@@ -533,7 +533,7 @@
                          }
                          [self showSuccessDialog];
                          sendedReservation = reservation;
-                         [self performSegueWithIdentifier:@"ReservationResponseSegue" sender:nil];
+//                         [self performSegueWithIdentifier:@"ReservationResponseSegue" sender:nil];
                      }];
 }
 
