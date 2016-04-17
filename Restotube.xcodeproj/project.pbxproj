@@ -1037,15 +1037,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Elena Chemeris (TA7JH95PW5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Chemeris (TA7JH95PW5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Elena Chemeris (2HJM435358)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Elena Chemeris (2HJM435358)";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Restotube/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.resto.tube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "29e3427b-6069-48eb-b3e1-dea287ba5082";
+				PROVISIONING_PROFILE = "42e318d9-de50-4082-a204-4ede795ec359";
 			};
 			name = Debug;
 		};
@@ -1055,15 +1055,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Elena Chemeris (TA7JH95PW5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Chemeris (TA7JH95PW5)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Elena Chemeris (2HJM435358)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Elena Chemeris (2HJM435358)";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Restotube/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.resto.tube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "29e3427b-6069-48eb-b3e1-dea287ba5082";
+				PROVISIONING_PROFILE = "42e318d9-de50-4082-a204-4ede795ec359";
 			};
 			name = Release;
 		};
