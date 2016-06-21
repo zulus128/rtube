@@ -92,6 +92,7 @@
     [self reload:nil];
     
     [buttonMap setFrame: CGRectMake(buttonMap.bounds.origin.x, buttonMap.bounds.origin.y, 64, 64)];
+//    self.needsNearOpen = YES;
 }
 
 -(void) viewDidAppear:(BOOL)animated {

@@ -21,8 +21,17 @@
 #import "MainViewController.h"
 #import "RequestManager.h"
 
-@implementation RestaurantsDetailViewController
-{
+#define TRY_ANIMATION_TIME 0.35
+
+@interface RestaurantsDetailViewController()
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageToTryText;
+
+@end
+
+@implementation RestaurantsDetailViewController {
     __weak IBOutlet UIImageView *imageHead;
     BOOL isReviewsLoading;
     BOOL isInfoLoading;
@@ -30,10 +39,65 @@
     MWPhotoBrowser *galleryBrowser;
     MWPhotoBrowser *reviewBrowser;
     NSInteger reviewPhotoIndex;
+    BOOL isLarge;
 }
 
-- (void) viewDidLoad
-{
+- (IBAction)tryImageClicked:(id)sender {
+    if(!isLarge) {
+        [self makeFull];
+    } else {
+        [self makeSmall];
+    }
+}
+
+- (void)makeFull {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    self.tryImageWidth.constant = screenRect.size.width - 2 * 20;
+    self.tryImageHeight.constant = screenRect.size.width - 2 * 20;
+    self.tryImageToTryText.constant = -200;
+    [UIView animateWithDuration:TRY_ANIMATION_TIME - 0.05
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:^(BOOL finished){
+                         self->tryImageView.layer.cornerRadius = (screenRect.size.width - 2 * 20) / 2;
+                         isLarge = YES;
+                     }];
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+    animation.duration = TRY_ANIMATION_TIME;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    animation.toValue = @((screenRect.size.width - 2 * 20) / 2);
+    animation.fillMode = kCAFillModeForwards;
+    animation.removedOnCompletion = YES;
+    [self->tryImageView.layer addAnimation:animation forKey:@"setCornerRadius:"];
+}
+
+- (void)makeSmall {
+    self.tryImageWidth.constant = 65;
+    self.tryImageHeight.constant = 65;
+    self.tryImageToTryText.constant = 0;
+    [UIView animateWithDuration:TRY_ANIMATION_TIME - 0.05
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:^(BOOL finished){
+                         self->tryImageView.layer.cornerRadius = 65 / 2;
+                         isLarge = NO;
+                     }];
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+    animation.duration = TRY_ANIMATION_TIME;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    animation.toValue = @(65 / 2);
+    animation.fillMode = kCAFillModeForwards;
+    animation.removedOnCompletion = YES;
+    [self->tryImageView.layer addAnimation:animation forKey:@"setCornerRadius1:"];
+}
+
+- (void)viewDidLoad {
     [super viewDidLoad];
  
     CALayer *TopBorder = [CALayer layer];

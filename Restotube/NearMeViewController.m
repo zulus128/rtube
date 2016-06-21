@@ -44,7 +44,15 @@
     _locationManager.desiredAccuracy = kCLLocationAccuracyBest; // setting the accuracy
     
     [_locationManager startUpdatingLocation];
-}
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"head-line"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setTranslucent:false];
+    [self.tableView setAllowsSelection:YES];
+    [self.navigationItem setTitleView:[[UIImageView alloc] initWithImage:[UIImage imageNamed: @"restotube-logo"]]];
+    CALayer *TopBorder = [CALayer layer];
+    TopBorder.frame = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 1.0f);
+    TopBorder.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"divider-pink"]].CGColor;
+    [self.tableView.layer addSublayer:TopBorder];}
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error retrieving your location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];

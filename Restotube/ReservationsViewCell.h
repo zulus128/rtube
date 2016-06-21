@@ -11,5 +11,6 @@
 @interface ReservationsViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *labelName;
 @property (weak, nonatomic) IBOutlet UILabel *labelDateCount;
+@property (weak, nonatomic) IBOutlet UILabel *labelAddress;
 
 @end

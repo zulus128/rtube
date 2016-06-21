@@ -10,4 +10,8 @@
 
 @implementation ReservationsViewCell
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+}
+
 @end

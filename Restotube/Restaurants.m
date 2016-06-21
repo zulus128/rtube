@@ -143,7 +143,7 @@
 }
 
 - (void) updateInfoWithAttributes:(NSDictionary *)attributes
-{
+{    
     self.likes = [[attributes valueForKey:@"likes"] integerValue];
     self.views = [[attributes valueForKey:@"view"] integerValue];
     
@@ -498,12 +498,15 @@
 - (NSURLSessionDataTask *)getFullInfoWithBlock:(float)cellWidth :(float)cellHeight :(void (^)(NSError *))block
 {
     CGFloat scaleFactor=[[UIScreen mainScreen] scale];
+
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
     
     NSString* urlrequest = [NSString stringWithFormat:@"getRestaurant?id=%@&"
                             "params[img][width]=%f&params[img][height]=%f&params[img][method]=crop&"
                             "params[images][width]=%f&params[images][height]=%f&params[images][method]=crop&"
-                            "params[offset]=10",
-                            self.restaurant_Id, cellWidth*scaleFactor, cellHeight*scaleFactor, cellWidth*scaleFactor, cellHeight*scaleFactor];
+                            "params[offset]=10&params[try_image][width]=%f&params[try_image][height]=%f"
+                            ,
+                            self.restaurant_Id, cellWidth*scaleFactor, cellHeight*scaleFactor, cellWidth*scaleFactor, cellHeight*scaleFactor, screenRect.size.width - 2 * 20, screenRect.size.width - 2 * 20];
     
     return [[RequestManager sharedManager] GET:urlrequest parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON)
             {

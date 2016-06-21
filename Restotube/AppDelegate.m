@@ -207,7 +207,7 @@
 - (void)registerTokenOnServer {
 
     Profile *prof = [Profile getInstance];
-    NSLog(@"--- user_id=%@ device_token=%@", prof.m_id, prof.pushToken);
+//    NSLog(@"--- user_id=%@ device_token=%@", prof.m_id, prof.pushToken);
     
     if (!prof.pushToken || !prof.m_id) {
         return;
