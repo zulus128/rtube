@@ -101,31 +101,36 @@
     
 
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
-//    [format setTimeStyle:NSDateFormatterShortStyle];
-//    [format setDateStyle:NSDateFormatterFullStyle];
     [format setDateFormat:@"EE, dd.MM.yyyy HH:mm"];
     NSString *string = [format stringFromDate:date];
     
     cell.labelDateCount.text = string;
     
-//    UIColor *col = [UIColor whiteColor];
     UIColor *color1 = [UIColor whiteColor];
     switch (reservation.status_id.intValue) {
         case 1:
-//            col = [UIColor colorWithRed:230.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
-             color1 = [UIColor colorWithRed:(CGFloat)0x00 / 0xff green:(CGFloat)0x00 / 0xff blue:(CGFloat)0x00 / 0xff alpha:(CGFloat)0x00 / 0xff];
+            color1 = [UIColor colorWithRed:(CGFloat)0x00 / 0xff green:(CGFloat)0x00 / 0xff blue:(CGFloat)0x00 / 0xff alpha:(CGFloat)0x00 / 0xff];
+            cell.circleStatus.backgroundColor = [UIColor colorWithRed:(CGFloat)0xc6 / 0xff green:(CGFloat)0xc6 / 0xff blue:(CGFloat)0xc6 / 0xff alpha:(CGFloat)0xff / 0xff];
+            cell.labelStatus.textColor = [UIColor colorWithRed:(CGFloat)0xc6 / 0xff green:(CGFloat)0xc6 / 0xff blue:(CGFloat)0xc6 / 0xff alpha:(CGFloat)0xff / 0xff];
+            cell.labelStatus.text = @"В ожидании";
             break;
         case 2:
-//            col = [UIColor colorWithRed:230.0f/255.0f green:255.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
-            color1 = [UIColor colorWithRed:(CGFloat)0xcd / 0xff green:(CGFloat)0xd7 / 0xff blue:(CGFloat)0x9d / 0xff alpha:(CGFloat)0xff / 0xff /*32.0 / 255.0*/];
+            color1 = [UIColor colorWithRed:(CGFloat)0xcd / 0xff green:(CGFloat)0xd7 / 0xff blue:(CGFloat)0x9d / 0xff alpha:(CGFloat)0xff / 0xff];
+            cell.circleStatus.backgroundColor = [UIColor colorWithRed:(CGFloat)0x84 / 0xff green:(CGFloat)0xdb / 0xff blue:(CGFloat)0x1d / 0xff alpha:(CGFloat)0xff / 0xff];
+            cell.labelStatus.textColor = [UIColor colorWithRed:(CGFloat)0x84 / 0xff green:(CGFloat)0xdb / 0xff blue:(CGFloat)0x1d / 0xff alpha:(CGFloat)0xff / 0xff];
+            cell.labelStatus.text = @"Одобрено";
             break;
         case 3:
-//            col = [UIColor whiteColor];
             color1 = [UIColor colorWithRed:(CGFloat)0x00 / 0xff green:(CGFloat)0x00 / 0xff blue:(CGFloat)0x00 / 0xff alpha:(CGFloat)0x00 / 0xff];
+            cell.circleStatus.backgroundColor = [UIColor colorWithRed:(CGFloat)0xc6 / 0xff green:(CGFloat)0xc6 / 0xff blue:(CGFloat)0xc6 / 0xff alpha:(CGFloat)0xff / 0xff];
+            cell.labelStatus.textColor = [UIColor colorWithRed:(CGFloat)0xc6 / 0xff green:(CGFloat)0xc6 / 0xff blue:(CGFloat)0xc6 / 0xff alpha:(CGFloat)0xff / 0xff];
+            cell.labelStatus.text = @"В ожидании";
             break;
         case 4:
-//            col = [UIColor colorWithRed:255.0f/255.0f green:230.0f/255.0f blue:230.0f/255.0f alpha:1.0f];
-            color1 = [UIColor colorWithRed:(CGFloat)0xe1 / 0xff green:(CGFloat)0x98 / 0xff blue:(CGFloat)0x88 / 0xff alpha:(CGFloat)0xff / 0xff /*32.0 / 255.0*/];
+            color1 = [UIColor colorWithRed:(CGFloat)0xe1 / 0xff green:(CGFloat)0x98 / 0xff blue:(CGFloat)0x88 / 0xff alpha:(CGFloat)0xff / 0xff];
+            cell.circleStatus.backgroundColor = [UIColor colorWithRed:(CGFloat)0xd7 / 0xff green:(CGFloat)0x0f / 0xff blue:(CGFloat)0x0d / 0xff alpha:(CGFloat)0xff / 0xff];
+            cell.labelStatus.textColor = [UIColor colorWithRed:(CGFloat)0xd7 / 0xff green:(CGFloat)0x0f / 0xff blue:(CGFloat)0x0d / 0xff alpha:(CGFloat)0xff / 0xff];
+            cell.labelStatus.text = @"Отменено";
             break;
     }
     

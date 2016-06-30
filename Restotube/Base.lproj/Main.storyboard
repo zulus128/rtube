@@ -3614,16 +3614,38 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z7O-PY-xhg" userLabel="CircleView">
+                                            <rect key="frame" x="162" y="72" width="47" height="28"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="12" id="3V2-Wl-fsX"/>
+                                                <constraint firstAttribute="height" constant="12" id="OUw-Jl-0nh"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uI7-qm-8yW">
+                                            <rect key="frame" x="217" y="75" width="95" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="74W-oX-2jj"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="uI7-qm-8yW" firstAttribute="trailing" secondItem="cMN-pK-VXV" secondAttribute="trailingMargin" id="1qj-M3-mKD"/>
+                                        <constraint firstItem="z7O-PY-xhg" firstAttribute="centerY" secondItem="7dT-9z-Mhn" secondAttribute="centerY" id="6jb-4c-Ohu"/>
                                         <constraint firstItem="qtf-X4-bbH" firstAttribute="leading" secondItem="cMN-pK-VXV" secondAttribute="leading" constant="15" id="BOu-Jd-ogF"/>
                                         <constraint firstItem="qtf-X4-bbH" firstAttribute="top" secondItem="aGx-6Z-ej5" secondAttribute="bottom" constant="2" id="FaJ-mL-Qu4"/>
+                                        <constraint firstItem="uI7-qm-8yW" firstAttribute="centerY" secondItem="z7O-PY-xhg" secondAttribute="centerY" id="JXt-q3-EkF"/>
                                         <constraint firstItem="Cj2-u7-nyy" firstAttribute="leading" secondItem="7dT-9z-Mhn" secondAttribute="trailing" constant="8" symbolic="YES" id="MUR-Yw-OVC"/>
                                         <constraint firstItem="Cj2-u7-nyy" firstAttribute="centerY" secondItem="cMN-pK-VXV" secondAttribute="centerY" id="NwX-JJ-rWw"/>
                                         <constraint firstItem="aGx-6Z-ej5" firstAttribute="leading" secondItem="7dT-9z-Mhn" secondAttribute="leading" id="R1M-kL-hQp"/>
                                         <constraint firstItem="aGx-6Z-ej5" firstAttribute="top" secondItem="cMN-pK-VXV" secondAttribute="topMargin" id="Rhh-uE-eSX"/>
+                                        <constraint firstItem="uI7-qm-8yW" firstAttribute="leading" secondItem="z7O-PY-xhg" secondAttribute="trailing" constant="8" id="chY-kN-OZw"/>
                                         <constraint firstItem="7dT-9z-Mhn" firstAttribute="top" secondItem="qtf-X4-bbH" secondAttribute="bottom" id="fdV-0h-znr"/>
                                         <constraint firstItem="aGx-6Z-ej5" firstAttribute="leading" secondItem="cMN-pK-VXV" secondAttribute="leading" constant="15" id="h3Y-8Q-d9m"/>
+                                        <constraint firstItem="z7O-PY-xhg" firstAttribute="centerX" secondItem="cMN-pK-VXV" secondAttribute="centerX" id="imb-Ah-tcT"/>
                                         <constraint firstItem="Cj2-u7-nyy" firstAttribute="leading" secondItem="qtf-X4-bbH" secondAttribute="trailing" constant="10" id="jZf-qX-IYq"/>
                                         <constraint firstAttribute="trailing" secondItem="Cj2-u7-nyy" secondAttribute="trailing" constant="15" id="pc8-H7-EcC"/>
                                         <constraint firstAttribute="bottom" secondItem="7dT-9z-Mhn" secondAttribute="bottom" constant="5" id="x5O-nX-N7X"/>
@@ -3631,9 +3653,11 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.82745098039215681" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="circleStatus" destination="z7O-PY-xhg" id="JP7-nY-ASZ"/>
                                     <outlet property="labelAddress" destination="qtf-X4-bbH" id="SBc-7r-rVR"/>
                                     <outlet property="labelDateCount" destination="7dT-9z-Mhn" id="Xmb-LB-Sjh"/>
                                     <outlet property="labelName" destination="aGx-6Z-ej5" id="Xc2-I6-xCC"/>
+                                    <outlet property="labelStatus" destination="uI7-qm-8yW" id="qN5-Na-QeO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

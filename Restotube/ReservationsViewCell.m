@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.circleStatus.layer.cornerRadius = 6;
 }
 
 @end

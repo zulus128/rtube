@@ -134,6 +134,7 @@
     isReviewsLoading = NO;
     fadeView.hidden = NO;
     
+    NSLog(@"----- %@ %@", _restaurants.restaurant_Id, [Profile getInstance].m_hash);
     NSURLSessionTask *task = [_restaurants getFullInfoWithBlock:galleryView.frame.size.width :galleryView.frame.size.height :^(NSError *error)
     {
         if (!error)
@@ -204,6 +205,24 @@
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:task delegate:nil];
+    
+//    NSString* urlrequest = [NSString stringWithFormat:@"book"];
+//    
+//    return [[RequestManager sharedManager] GET:urlrequest parameters:params success:^(NSURLSessionDataTask * __unused task, id JSON)
+//            {
+//                // TODO: remove this, server must send non-200 response
+//                if (JSON[@"errors"]) {
+//                    if (block) block(nil, [NSError errorWithDomain:@"ApiError" code:0 userInfo:JSON]);
+//                    return;
+//                }
+//                Reservation *reservation = [[Reservation alloc] initWithAttributes:(NSDictionary *)JSON];
+//                
+//                if (block) block(reservation, nil);
+//            }
+//                                       failure:^(NSURLSessionDataTask *__unused task, NSError *error)
+//            {
+//                if (block) block(nil, error);
+//            }];
 }
 
 - (void)viewDidLayoutSubviews

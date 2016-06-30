@@ -12,5 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelName;
 @property (weak, nonatomic) IBOutlet UILabel *labelDateCount;
 @property (weak, nonatomic) IBOutlet UILabel *labelAddress;
+@property (weak, nonatomic) IBOutlet UILabel *labelStatus;
+@property (weak, nonatomic) IBOutlet UIView *circleStatus;
 
 @end
