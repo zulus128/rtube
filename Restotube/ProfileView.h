@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFieldEmail;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldPassword;
 @property (weak, nonatomic) IBOutlet SHSPhoneTextField *textFieldPhone;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentWidtht;
 
 
 - (UIViewController *)getCurrentRootViewController;

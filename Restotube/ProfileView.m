@@ -69,6 +69,8 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    self.contentWidtht.constant = [[UIScreen mainScreen] bounds].size.width;
+
 }
 
 -(void)dismissKeyboard {

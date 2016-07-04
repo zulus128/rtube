@@ -13,16 +13,31 @@
 #import "UIImageView+AFNetworking.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ProfileView.h"
-#import "NearMeViewController.h"
+//#import "NearMeViewController.h"
 #import "ConstantsManager.h"
 #import "RequestManager.h"
 #import "AppDelegate.h"
 #import "ReplenishBalanceViewController.h"
 #import "ReplenishNavigationController.h"
 
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
 
-@interface LeftMenuViewController ()
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
 
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+@interface LeftMenuViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @property (weak, nonatomic) IBOutlet UIImageView *imageAvatar;
 @property (weak, nonatomic) IBOutlet UIButton *buttonAddBalance;
 @property (weak, nonatomic) IBOutlet UILabel *labelBalanceText;
@@ -34,6 +49,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonNear;
 @property (weak, nonatomic) IBOutlet UIButton *buttonMoscow;
 @property (weak, nonatomic) IBOutlet UIButton *buttonSochi;
+@property(strong, nonatomic) NSArray *cityList;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *gap1;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *gap2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *gap3;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *gap4;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *gap5;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *gap6;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *gap7;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *gap0;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *gap8;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pickerHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameHeight;
 
 @end
 
@@ -41,6 +68,7 @@
 
 - (void)viewDidLoad
 {
+    self.cityList = @[@"Москва", @"Сочи", @"Ростов", @"Краснодар"];
     [super viewDidLoad];
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickAvatar)];
     singleTap.numberOfTapsRequired = 1;
@@ -102,6 +130,37 @@
         _buttonMoscow.selected = NO;
         _buttonSochi.selected = YES;
     }
+    
+    self.view.backgroundColor = [UIColor clearColor];
+    self.picker.backgroundColor = [UIColor colorWithRed:224/255.0f green:187/255.0f blue:195/255.0f alpha:1];
+    self.picker.layer.cornerRadius = 7;
+    self.picker.layer.masksToBounds = YES;
+
+    CGFloat gap = 8;
+    if(IS_IPHONE_6P) {
+        gap = 8;
+        self.pickerHeight.constant = 100;
+    } else if(IS_IPHONE_6) {
+        gap = 0;
+    } else if (IS_IPHONE_5) {
+        gap = -10;
+        self.gap8.constant = 5;
+        self.pickerHeight.constant = 80;
+        self.nameHeight.constant = 30;
+    } else if (IS_IPHONE_4_OR_LESS) {
+        gap = -20;
+        self.gap8.constant = 2;
+        self.pickerHeight.constant = 60;
+        self.nameHeight.constant = 10;
+    }
+    self.gap0.constant = gap;
+    self.gap1.constant = gap;
+    self.gap2.constant = gap;
+    self.gap3.constant = gap;
+    self.gap4.constant = gap;
+    self.gap5.constant = gap;
+    self.gap6.constant = gap;
+    self.gap7.constant = gap;
 }
 
 - (void) dealloc
@@ -118,7 +177,7 @@
     if(view) {
         CGFloat corner = self.imageAvatar.image.size.width;
         _imageAvatar.image = [self resizeImage:view.imageAvatar.image imageSize: CGSizeMake(70, 70)];
-        self.imageAvatar.layer.cornerRadius = 70 / 2;
+        self.imageAvatar.layer.cornerRadius = 90 / 2;
         self.imageAvatar.layer.masksToBounds = YES;
     }
 }
@@ -138,7 +197,7 @@
                             placeholderImage:[UIImage imageNamed:@"no-photo"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image)
      {
          _imageAvatar.image = [self resizeImage:image imageSize: CGSizeMake(70, 70)];
-         self.imageAvatar.layer.cornerRadius = 70 / 2;
+         self.imageAvatar.layer.cornerRadius = 90 / 2;
          self.imageAvatar.layer.masksToBounds = YES;
          self.imageAvatar.layer.borderWidth  = 0;
      }
@@ -147,8 +206,7 @@
                                      }];
     
     self.labelBalance.text = [NSString stringWithFormat: @"%ld руб.", (long)[[Profile getInstance] m_balance]];
-
-
+    self.nameLabel.text = [[Profile getInstance] m_name];
 }
 
 -(UIImage*)resizeImage:(UIImage *)image imageSize:(CGSize)size
@@ -174,37 +232,57 @@
     [self.sideMenuViewController hideMenuViewController];
 }
 - (IBAction)onCityButton:(UIButton *)sender {
-    if (sender == _buttonMoscow)
-    {
-        _buttonMoscow.selected = YES;
-        _buttonSochi.selected = NO;
-        [ConstantsManager getInstance].city = @"moscow";
-    }
-    else
-    {
-        _buttonMoscow.selected = NO;
-        _buttonSochi.selected = YES;
-        [ConstantsManager getInstance].city = @"sochi";
-    }
-    
-    UINavigationController *nc = (UINavigationController *)self.sideMenuViewController.contentViewController;
-    if (nc.childViewControllers.count > 1)
-    {
-        [nc popToRootViewControllerAnimated:NO];
-    }
-    UIViewController *vc = nc.childViewControllers.firstObject;
-    if ([vc isKindOfClass:[CategoriesViewController class]])
-    {
-        [(CategoriesViewController *)vc reload:nil];
-    }
+    _picker.hidden = NO;
+//    if (sender == _buttonMoscow)
+//    {
+//        _buttonMoscow.selected = YES;
+//        _buttonSochi.selected = NO;
+//        [ConstantsManager getInstance].city = @"moscow";
+//    }
+//    else
+//    {
+//        _buttonMoscow.selected = NO;
+//        _buttonSochi.selected = YES;
+//        [ConstantsManager getInstance].city = @"sochi";
+//    }
+//    
+//    UINavigationController *nc = (UINavigationController *)self.sideMenuViewController.contentViewController;
+//    if (nc.childViewControllers.count > 1)
+//    {
+//        [nc popToRootViewControllerAnimated:NO];
+//    }
+//    UIViewController *vc = nc.childViewControllers.firstObject;
+//    if ([vc isKindOfClass:[CategoriesViewController class]])
+//    {
+//        [(CategoriesViewController *)vc reload:nil];
+//    }
 }
 
 - (IBAction)onNearButton:(id)sender {
     CategoriesViewController* cat = [self.storyboard instantiateViewControllerWithIdentifier:@"categoriesViewController"];
     cat.needsNearOpen = YES;
+    cat.needsSale = NO;
+    cat.needsGift = NO;
     [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:cat] animated:YES];
     [self.sideMenuViewController hideMenuViewController];
+}
 
+- (IBAction)onNearButtonSale:(id)sender {
+    CategoriesViewController* cat = [self.storyboard instantiateViewControllerWithIdentifier:@"categoriesViewController"];
+    cat.needsNearOpen = YES;
+    cat.needsSale = YES;
+    cat.needsGift = NO;
+    [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:cat] animated:YES];
+    [self.sideMenuViewController hideMenuViewController];
+}
+
+- (IBAction)onNearButtonGift:(id)sender {
+    CategoriesViewController* cat = [self.storyboard instantiateViewControllerWithIdentifier:@"categoriesViewController"];
+    cat.needsNearOpen = YES;
+    cat.needsSale = NO;
+    cat.needsGift = YES;
+    [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:cat] animated:YES];
+    [self.sideMenuViewController hideMenuViewController];
 }
 
 - (IBAction)onClickAddBalance:(id)sender {
@@ -284,6 +362,51 @@
             ;
         }
     }];
+}
+
+#pragma mark UIPicker
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return self.cityList.count;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    _picker.hidden = YES;
+    [self.buttonMoscow setTitle:self.cityList[row] forState:UIControlStateNormal];
+    switch (row) {
+        case 0:
+            [ConstantsManager getInstance].city = @"moscow";
+            break;
+        case 1:
+            [ConstantsManager getInstance].city = @"sochi";
+            break;
+        case 2:
+            [ConstantsManager getInstance].city = @"rostov";
+            break;
+        case 3:
+            [ConstantsManager getInstance].city = @"krasnodar";
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    UILabel* tView = (UILabel*)view;
+    if (!tView) {
+        tView = [[UILabel alloc] init];
+        [tView setTextAlignment:NSTextAlignmentCenter];
+        [tView setTextColor:[UIColor colorWithRed:170/255.0f green:31/255.0f blue:74/255.0f alpha:1]];//aa1f4a
+        [tView setFont:[UIFont fontWithName:@"Helvetica" size:16]];
+    }
+    tView.text = self.cityList[row];
+    return tView;
 }
 
 @end

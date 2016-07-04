@@ -16,7 +16,6 @@
     IBOutlet UILabel *reservNumberLabel;
     IBOutlet UILabel *topLabel;
     IBOutlet UILabel *bottomLabel;
-    __weak IBOutlet UIButton *saveToCameraRoll;
     __weak IBOutlet UIButton *returnButton;
 }
 

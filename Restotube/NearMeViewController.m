@@ -120,7 +120,24 @@
     NSMutableDictionary *locations = [NSMutableDictionary new];
     for(int i = 0 ; i < [self.restaurants count] ; i ++ ) {
         Restaurants* restaurant = [self.restaurants objectAtIndex:i];
-
+        BOOL isGift = NO;
+        BOOL isSale = NO;
+        if([restaurant.sale isEqualToString: @""]) {
+            if (restaurant.presentDesc.length == 0) {
+                //do nothing
+            }
+            else {
+                isGift = YES;
+            }
+        } else {
+            isSale = YES;
+        }
+        if(!isSale && self.needsSale) {
+            continue;
+        }
+        if(!isGift && self.needsGift) {
+            continue;
+        }
         CLLocationDistance d = MAXFLOAT;
         for(int j = 0; j < [restaurant.addresses count]; j++) {
             Addresses* address = [restaurant.addresses objectAtIndex:j];

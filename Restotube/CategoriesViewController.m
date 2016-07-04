@@ -18,6 +18,7 @@
 #import "Filters.h"
 #import "UISearchBar+CustomBackGround.h"
 #import "ConstantsManager.h"
+#import "NearMeViewController.h"
 
 @interface CategoriesViewController ()
 @property (readwrite, nonatomic, strong) NSArray *categories;
@@ -154,8 +155,13 @@
         Categories *category = (Categories *)sender;
         RestaurantsViewController *controller = (RestaurantsViewController *)segue.destinationViewController;
         controller.category = (Categories *)sender;
-
+        
         [[Filters getInstance] setCategoryId:category.category_Id];
+    }
+    if ([segue.identifier isEqualToString:@"nearSegue"]) {
+        NearMeViewController *controller = (NearMeViewController *)segue.destinationViewController;
+        controller.needsGift = self.needsGift;
+        controller.needsSale = self.needsSale;
     }
 }
 

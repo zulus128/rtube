@@ -23,12 +23,20 @@
 #define PRODUCT_PRICE_DEFAULT_VALUE       50
 #define PRODUCT_PRICE_EXISTS_PARAM_NAME   @"productPriceExists"
 
-@interface ReservationViewController()
+#define TRY_ANIMATION_TIME1 0.35
+
+@interface ReservationViewController() {
+    BOOL isLarge;
+}
 @property (weak, nonatomic) IBOutlet UIView *discountView;
 @property (weak, nonatomic) IBOutlet UIImageView *infoBubble;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel3;
+@property (weak, nonatomic) IBOutlet UIImageView *bottomPicture;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageToTryText;
 
 @end
 
@@ -45,6 +53,60 @@
     UITapGestureRecognizer *tapGestureRecognizer;
 }
 
+- (IBAction)tryImageClicked:(id)sender {
+    if(!isLarge) {
+        [self makeFull];
+    } else {
+        [self makeSmall];
+    }
+}
+
+- (void)makeFull {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    self.tryImageWidth.constant = screenRect.size.width - 2 * 20;
+    self.tryImageHeight.constant = screenRect.size.width - 2 * 20;
+    self.tryImageToTryText.constant = -200;
+    [UIView animateWithDuration:TRY_ANIMATION_TIME1 - 0.05
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:^(BOOL finished){
+                         self.bottomPicture.layer.cornerRadius = (screenRect.size.width - 2 * 20) / 2;
+                         isLarge = YES;
+                     }];
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+    animation.duration = TRY_ANIMATION_TIME1;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    animation.toValue = @((screenRect.size.width - 2 * 20) / 2);
+    animation.fillMode = kCAFillModeForwards;
+    animation.removedOnCompletion = YES;
+    [self.bottomPicture.layer addAnimation:animation forKey:@"setCornerRadius:"];
+}
+
+- (void)makeSmall {
+    self.tryImageWidth.constant = 65;
+    self.tryImageHeight.constant = 65;
+    self.tryImageToTryText.constant = 20;
+    [UIView animateWithDuration:TRY_ANIMATION_TIME1 - 0.05
+                          delay:0.0
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:^(BOOL finished){
+                         self.bottomPicture.layer.cornerRadius = 65 / 2;
+                         isLarge = NO;
+                     }];
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+    animation.duration = TRY_ANIMATION_TIME1;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    animation.toValue = @(65 / 2);
+    animation.fillMode = kCAFillModeForwards;
+    animation.removedOnCompletion = YES;
+    [self.bottomPicture.layer addAnimation:animation forKey:@"setCornerRadius1:"];
+}
 
 - (void) viewDidLoad
 {
@@ -94,12 +156,29 @@
             NSString* str = [NSString stringWithFormat:@"Забронировать c подарком"];
             [resrveWithDiscountButton setTitle:str forState:UIControlStateNormal];
             [resrveButton setHidden:YES];
+            
+            NSURL *assetsBaseUrl = [RequestManager sharedManager].assetsBaseUrl;
+            NSURL *imgUrl = [[NSURL alloc] initWithString:_restaurant.presentImg relativeToURL:assetsBaseUrl];
+            NSURLRequest* req_bg = [NSURLRequest requestWithURL:imgUrl];
+            [self.bottomPicture setImageWithURLRequest:req_bg placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+    
+                [UIView transitionWithView:self.bottomPicture
+                                  duration:0.3
+                                   options:UIViewAnimationOptionTransitionCrossDissolve
+                                animations:^{
+                                    self.bottomPicture.image = image;
+                                }
+                                completion:NULL];
+            } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                NSLog(@"error: %@", error);
+            }];
         }
     }
     else {
         NSString* str = [NSString stringWithFormat:@"Забронировать со скидкой %ld%%", (long)_restaurant.saleint];
         [resrveWithDiscountButton setTitle:str forState:UIControlStateNormal];
         [resrveButton setHidden:YES];
+        [self.bottomPicture setImage:[UIImage imageNamed:@"salepic"]];
     }
     
     if (_restaurant.presentDesc.length == 0)
@@ -164,6 +243,10 @@
     _infoLabel1.hidden = YES;
     _infoLabel2.hidden = YES;
     _infoLabel3.hidden = YES;
+    
+    self.bottomPicture.layer.cornerRadius = 45;
+    self.bottomPicture.layer.masksToBounds = YES;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated

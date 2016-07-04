@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageToTryText;
+@property (weak, nonatomic) IBOutlet UIButton *likesButton;
 
 @end
 
@@ -134,7 +135,7 @@
     isReviewsLoading = NO;
     fadeView.hidden = NO;
     
-    NSLog(@"----- %@ %@", _restaurants.restaurant_Id, [Profile getInstance].m_hash);
+//    NSLog(@"----- %@ %@", _restaurants, [Profile getInstance].m_hash);
     NSURLSessionTask *task = [_restaurants getFullInfoWithBlock:galleryView.frame.size.width :galleryView.frame.size.height :^(NSError *error)
     {
         if (!error)
@@ -223,6 +224,22 @@
 //            {
 //                if (block) block(nil, error);
 //            }];
+    
+    [self setLikeColor];
+}
+
+- (void)setLikeColor {
+    NSString* urlrequest = [NSString stringWithFormat:@"isUserSetRestLike?rest_id=%@&hash=%@", _restaurants.restaurant_Id, [Profile getInstance].m_hash ? [Profile getInstance].m_hash : @""];
+    [[RequestManager sharedManager] GET:urlrequest parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON)
+     {
+//         NSLog(@"--- Success: %@", JSON);
+         if ([JSON valueForKey:@"ok"] && [[JSON valueForKey:@"ok"] intValue]) {
+             [self.likesButton setSelected:YES];
+         }
+
+     } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+//         NSLog(@"--- Error: %@", error);
+     }];
 }
 
 - (void)viewDidLayoutSubviews
@@ -606,6 +623,7 @@
 {
     [self.restaurants likeRestaurantForUser:[Profile getInstance].m_hash withCompletion:^(NSError *error) {
         likesLabel.text = [NSString stringWithFormat:@"%ld", (long)_restaurants.likes];
+        [self.likesButton setSelected:YES];
     }];
 }
 

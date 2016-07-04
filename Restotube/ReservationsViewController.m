@@ -198,6 +198,7 @@
         reservation.sale = book.sale;
         reservation.resto = book.resto;
         reservation.reservation_id = book.book_Id;
+        reservation.status_id = book.status_id;
         controller.reservation = reservation;
         controller.nameString = [NSString stringWithFormat:@"%@", book.name];
     }

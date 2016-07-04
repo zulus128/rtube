@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString *presentDesc;
 @property (strong, nonatomic) NSString *payment_id;
 @property (strong, nonatomic) NSString *sum;
+@property (nonatomic, strong) NSString *status_id;
 
 - (instancetype)initWithAttributes:(NSDictionary *)attributes;
 + (NSURLSessionDataTask *)sendReserveRequest:(NSDictionary *)params WithCompletion:(void (^)(Reservation *reservation, NSError *error))block;
