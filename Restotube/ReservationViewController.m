@@ -86,8 +86,8 @@
 }
 
 - (void)makeSmall {
-    self.tryImageWidth.constant = 65;
-    self.tryImageHeight.constant = 65;
+    self.tryImageWidth.constant = 120;
+    self.tryImageHeight.constant = 120;
     self.tryImageToTryText.constant = 20;
     [UIView animateWithDuration:TRY_ANIMATION_TIME1 - 0.05
                           delay:0.0
@@ -96,13 +96,13 @@
                          [self.view layoutIfNeeded];
                      }
                      completion:^(BOOL finished){
-                         self.bottomPicture.layer.cornerRadius = 65 / 2;
+                         self.bottomPicture.layer.cornerRadius = 120 / 2;
                          isLarge = NO;
                      }];
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
     animation.duration = TRY_ANIMATION_TIME1;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    animation.toValue = @(65 / 2);
+    animation.toValue = @(120 / 2);
     animation.fillMode = kCAFillModeForwards;
     animation.removedOnCompletion = YES;
     [self.bottomPicture.layer addAnimation:animation forKey:@"setCornerRadius1:"];
@@ -232,8 +232,8 @@
     [self updateCostPerPersonLabel];
     
     NSDictionary *cache = [[NSUserDefaults standardUserDefaults] objectForKey:@"kReserveCache"];
-    surnameField.text = cache[@"surname"];
-    nameField.text = cache[@"name"];
+    surnameField.text = [[Profile getInstance] m_surname];//cache[@"surname"];
+    nameField.text = [[Profile getInstance] m_name];//cache[@"name"];
     phoneField.text = [self profilePhone] ? [self profilePhone] : cache[@"fullPhone"];
     phoneField.enabled = ![self profilePhone];
     phoneField.textColor = [self profilePhone] ? [UIColor grayColor] : [UIColor blackColor];
@@ -244,7 +244,7 @@
     _infoLabel2.hidden = YES;
     _infoLabel3.hidden = YES;
     
-    self.bottomPicture.layer.cornerRadius = 45;
+    self.bottomPicture.layer.cornerRadius = 120 / 2;
     self.bottomPicture.layer.masksToBounds = YES;
     
 }

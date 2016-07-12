@@ -181,7 +181,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onClickReservations:" destination="aP8-Qe-Zh3" eventType="touchUpInside" id="FW9-7i-cYG"/>
+                                    <action selector="onClickAbout:" destination="aP8-Qe-Zh3" eventType="touchUpInside" id="cgh-1g-pwf"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 000 руб" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tx6-GO-X2N">
@@ -256,8 +256,8 @@
                             <pickerView hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VxX-lo-QM9">
                                 <rect key="frame" x="6" y="591" width="213" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="2ox-wU-L9z"/>
-                                    <constraint firstAttribute="height" constant="100" id="xx0-bk-2Oa"/>
+                                    <constraint firstAttribute="width" constant="250" id="2ox-wU-L9z"/>
+                                    <constraint firstAttribute="height" constant="20" id="xx0-bk-2Oa"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="aP8-Qe-Zh3" id="BIl-Wm-w85"/>
@@ -334,6 +334,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYz-HR-pg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-930" y="-2472"/>
+        </scene>
+        <!--About Controller-->
+        <scene sceneID="I2n-Sx-CNH">
+            <objects>
+                <viewController id="4Tb-KC-KC0" customClass="AboutController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5OO-7w-sg6"/>
+                        <viewControllerLayoutGuide type="bottom" id="XPY-iv-5GK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qvm-Ga-VUA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="about_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Fso-Vi-Xys">
+                                <rect key="frame" x="40" y="79" width="240" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="L7s-aw-4Jj"/>
+                                    <constraint firstAttribute="width" secondItem="Fso-Vi-Xys" secondAttribute="height" multiplier="191:38" id="e1k-ol-4c2"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="about_text" translatesAutoresizingMaskIntoConstraints="NO" id="Ncg-TK-prh">
+                                <rect key="frame" x="35" y="156" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ncg-TK-prh" secondAttribute="height" multiplier="586:793" id="rjE-c5-M3g"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXw-hf-SUW">
+                                <rect key="frame" x="55" y="451" width="220" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="YDw-7O-ykA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="ОСТАВИТЬ ОТЗЫВ" backgroundImage="button-pink">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="feedbackClicked:" destination="4Tb-KC-KC0" eventType="touchUpInside" id="FY8-ca-vQB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ncg-TK-prh" firstAttribute="top" secondItem="Fso-Vi-Xys" secondAttribute="bottom" constant="29" id="13T-gL-RYh"/>
+                            <constraint firstAttribute="trailing" secondItem="Ncg-TK-prh" secondAttribute="trailing" constant="40" id="Gg4-V7-IYR"/>
+                            <constraint firstItem="RXw-hf-SUW" firstAttribute="width" secondItem="RXw-hf-SUW" secondAttribute="height" multiplier="13:2" id="JF2-EE-3cT"/>
+                            <constraint firstItem="Ncg-TK-prh" firstAttribute="leading" secondItem="Qvm-Ga-VUA" secondAttribute="leading" constant="40" id="OcH-aA-d6d"/>
+                            <constraint firstItem="RXw-hf-SUW" firstAttribute="centerX" secondItem="Qvm-Ga-VUA" secondAttribute="centerX" id="ke2-XY-cjm"/>
+                            <constraint firstItem="Fso-Vi-Xys" firstAttribute="centerX" secondItem="Qvm-Ga-VUA" secondAttribute="centerX" id="no9-A9-6UK"/>
+                            <constraint firstItem="XPY-iv-5GK" firstAttribute="top" secondItem="RXw-hf-SUW" secondAttribute="bottom" constant="30" id="pwx-B0-LLT"/>
+                            <constraint firstItem="Fso-Vi-Xys" firstAttribute="top" secondItem="5OO-7w-sg6" secondAttribute="bottom" constant="30" id="sne-Zk-833"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="SV7-Uh-31P"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jJ4-pM-TGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-881" y="-1129"/>
         </scene>
         <!--Auth View Controller-->
         <scene sceneID="4Oj-Ah-t8u">
@@ -549,6 +606,9 @@
                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tjv-p0-Z3R" id="hfX-zm-FVD"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фамилия" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SX9-q6-sw5">
                                                 <rect key="frame" x="20" y="186" width="108" height="21"/>
@@ -564,6 +624,9 @@
                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tjv-p0-Z3R" id="Q5T-MH-Wkm"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Телефон" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W0-aZ-b4W">
                                                 <rect key="frame" x="20" y="244" width="108" height="21"/>
@@ -579,6 +642,9 @@
                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tjv-p0-Z3R" id="3qQ-Po-prd"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoz-MW-Q6M">
                                                 <rect key="frame" x="20" y="302" width="108" height="21"/>
@@ -594,6 +660,9 @@
                                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tjv-p0-Z3R" id="X7e-dZ-GIy"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcR-py-fBa">
                                                 <rect key="frame" x="20" y="360" width="108" height="21"/>
@@ -614,6 +683,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tjv-p0-Z3R" id="LJb-iI-n6K"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3345,16 +3417,16 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSA-M1-rBA">
-                                <rect key="frame" x="200" y="428" width="87" height="49"/>
+                                <rect key="frame" x="200" y="428" width="86.5" height="49"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000007" translatesAutoresizingMaskIntoConstraints="NO" id="bSc-Mu-K8c" userLabel="12345%">
-                                        <rect key="frame" x="-1" y="7" width="80" height="44"/>
+                                        <rect key="frame" x="-1.5" y="7" width="80" height="44"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="42"/>
                                         <color key="textColor" red="0.80000000000000004" green="0.15294117647058825" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bubble_present" translatesAutoresizingMaskIntoConstraints="NO" id="nBA-mz-0jt">
-                                        <rect key="frame" x="15" y="14" width="44" height="30"/>
+                                        <rect key="frame" x="15" y="14" width="43.5" height="30.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="nBA-mz-0jt" secondAttribute="height" multiplier="43:30" id="hUF-nu-Fxz"/>
                                         </constraints>
@@ -3370,19 +3442,19 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Закажите столик" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25000000000000006" translatesAutoresizingMaskIntoConstraints="NO" id="tUV-Iu-xMu">
-                                <rect key="frame" x="36" y="469" width="65" height="34"/>
+                                <rect key="frame" x="36" y="469.5" width="65" height="34"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="и всего 59 руб. за человека" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AyW-Vw-Gbd">
-                                <rect key="frame" x="101" y="472" width="91" height="27"/>
+                                <rect key="frame" x="101" y="472.5" width="91" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="получите скидку на общий счет!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Nd-NZ-wJn">
-                                <rect key="frame" x="186" y="473" width="101" height="27"/>
+                                <rect key="frame" x="185.5" y="473.5" width="101" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3395,8 +3467,8 @@
                                 <rect key="frame" x="47" y="483" width="240" height="128"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="Yyh-WQ-29H"/>
-                                    <constraint firstAttribute="width" constant="90" id="fdO-QA-IPJ"/>
+                                    <constraint firstAttribute="height" constant="120" id="Yyh-WQ-29H"/>
+                                    <constraint firstAttribute="width" constant="120" id="fdO-QA-IPJ"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="PpS-pC-qgP" appends="YES" id="ErE-Md-d1B"/>
@@ -4066,6 +4138,7 @@
                         <segue destination="tjv-p0-Z3R" kind="push" identifier="ProfileSegue" id="Mqo-Lf-bsE"/>
                         <segue destination="yET-rE-TY9" kind="push" identifier="reservationsSegue" id="3hn-0V-1zk"/>
                         <segue destination="stQ-7T-e2U" kind="push" identifier="nearSegue" id="v3W-jP-ORm"/>
+                        <segue destination="4Tb-KC-KC0" kind="push" identifier="aboutSegue" id="Xi6-F1-pQa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Fj-ns-xT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4933,6 +5006,8 @@ Restotube гарантирует передавать ваши
         <image name="7" width="83" height="74"/>
         <image name="8" width="82" height="74"/>
         <image name="9" width="83" height="74"/>
+        <image name="about_logo" width="191" height="38"/>
+        <image name="about_text" width="586" height="793"/>
         <image name="addCommentReport" width="11" height="11"/>
         <image name="arrow-back" width="10" height="15"/>
         <image name="arrow-down" width="15" height="10"/>
@@ -4979,17 +5054,17 @@ Restotube гарантирует передавать ваши
         <image name="vkontakteShareButton_selected" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ubx-Yx-474"/>
-        <segue reference="K37-Pj-ugF"/>
-        <segue reference="uPj-nn-pEm"/>
-        <segue reference="v3W-jP-ORm"/>
-        <segue reference="kqt-qQ-Utx"/>
-        <segue reference="JOx-0X-0cj"/>
         <segue reference="bF7-FT-n0J"/>
+        <segue reference="kqt-qQ-Utx"/>
+        <segue reference="v3W-jP-ORm"/>
+        <segue reference="JOx-0X-0cj"/>
+        <segue reference="mPu-vK-Zg7"/>
+        <segue reference="K37-Pj-ugF"/>
         <segue reference="CrV-N2-cmX"/>
         <segue reference="9q1-wT-gXW"/>
-        <segue reference="fhc-Yr-yct"/>
         <segue reference="N36-n8-ISm"/>
+        <segue reference="Ubx-Yx-474"/>
+        <segue reference="fhc-Yr-yct"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

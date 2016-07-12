@@ -23,6 +23,7 @@
 @property (nonatomic, assign) BOOL needsNearOpen;
 @property (nonatomic, assign) BOOL needsSale;
 @property (nonatomic, assign) BOOL needsGift;
+@property (nonatomic, assign) BOOL needsAboutOpen;
 
 - (void)reload:(__unused id)sender;
 @end

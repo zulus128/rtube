@@ -117,6 +117,10 @@
         [self performSegueWithIdentifier:@"nearSegue" sender:nil];
         self.needsNearOpen = NO;
     }
+    if(self.needsAboutOpen == YES) {
+        [self performSegueWithIdentifier:@"aboutSegue" sender:nil];
+        self.needsAboutOpen = NO;
+    }
 }
 
 

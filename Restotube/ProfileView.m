@@ -14,15 +14,15 @@
 #import "AFNetworking.h"
 #import "RequestManager.h"
 
-@interface ProfileView () <RSKImageCropViewControllerDelegate, JSImagePickerViewControllerDelegate> {
+@interface ProfileView () <RSKImageCropViewControllerDelegate, JSImagePickerViewControllerDelegate, UIAlertViewDelegate, UITextFieldDelegate> {
     BOOL isImageChanged;
 }
 
 @end
 
 @implementation ProfileView
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
     isImageChanged = NO;
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickAvatar)];
@@ -187,6 +187,7 @@
             [alert setTitle:tmpTitle];
             [alert setMessage:tmpMsg];
             [alert setAlertViewStyle:UIAlertViewStyleDefault];
+            alert.delegate = self;
             [alert show];
         }  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
@@ -286,6 +287,16 @@
     isImageChanged = YES;
     
     
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark UITextFieldDelegate
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
 
 @end

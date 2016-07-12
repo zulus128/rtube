@@ -111,6 +111,7 @@
 		65D4F4691ADBFDE800E326A6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D4F4681ADBFDE800E326A6 /* MobileCoreServices.framework */; };
 		65FFCA801ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FFCA7F1ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.m */; };
 		65FFCA811ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FFCA7F1ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.m */; };
+		7E2853851D2FA0CF000E93E6 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2853841D2FA0CF000E93E6 /* AboutController.m */; };
 		850FE4AC1ADBD69700A3E2AC /* ReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850FE4AB1ADBD69700A3E2AC /* ReservationViewController.m */; };
 		850FF9601AE23ED000026962 /* RWLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 850FF95F1AE23ED000026962 /* RWLabel.m */; };
 		8522CE551ADD4E5E00A675B2 /* ReservationInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8522CE541ADD4E5E00A675B2 /* ReservationInfoViewController.m */; };
@@ -263,6 +264,8 @@
 		65D4F4681ADBFDE800E326A6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		65FFCA7E1ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+CustomBackGround.h"; sourceTree = "<group>"; };
 		65FFCA7F1ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+CustomBackGround.m"; sourceTree = "<group>"; };
+		7E2853831D2FA0CE000E93E6 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		7E2853841D2FA0CF000E93E6 /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		7E69543E3DF815669084AACD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		850FE4AA1ADBD69700A3E2AC /* ReservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationViewController.h; sourceTree = "<group>"; };
 		850FE4AB1ADBD69700A3E2AC /* ReservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationViewController.m; sourceTree = "<group>"; };
@@ -565,6 +568,8 @@
 				CE7D3B541B6F5DD400383EC4 /* NearMeViewController.m */,
 				596E4D441B926BBC00C50B25 /* FirstViewController.h */,
 				596E4D451B926BBC00C50B25 /* FirstViewController.m */,
+				7E2853831D2FA0CE000E93E6 /* AboutController.h */,
+				7E2853841D2FA0CF000E93E6 /* AboutController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -880,6 +885,7 @@
 				65B41BEF1ADE825E00EDEDBE /* BookList.m in Sources */,
 				850FF9601AE23ED000026962 /* RWLabel.m in Sources */,
 				656871831AD6B96D0086333C /* MetroViewCell.m in Sources */,
+				7E2853851D2FA0CF000E93E6 /* AboutController.m in Sources */,
 				85E4702D1ADE640B00890521 /* Reservation.m in Sources */,
 				6552F6731AD29FE50086AB38 /* CategoriesViewCell.m in Sources */,
 				596E4D401B9241EC00C50B25 /* IntroView3.m in Sources */,
@@ -1037,15 +1043,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Elena Chemeris (TA7JH95PW5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Chemeris (TA7JH95PW5)";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Restotube/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.resto.tube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6afd4f1a-3f56-4600-85e2-74b8b533f009";
 			};
 			name = Debug;
 		};
@@ -1055,15 +1061,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Elena Chemeris (TA7JH95PW5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Elena Chemeris (TA7JH95PW5)";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Restotube/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.resto.tube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6afd4f1a-3f56-4600-85e2-74b8b533f009";
 			};
 			name = Release;
 		};

@@ -75,6 +75,8 @@
     self.labelLikes.text = [NSString stringWithFormat:@"%ld", (long)restaurant.likes];
     self.labelTime.text = restaurant.work_time;
     self.labelAverage.text = restaurant.averages;
+    self.labelDiscount.hidden = NO;
+    self.imageDiscount.hidden = NO;
     
     if([restaurant.sale isEqualToString:@""] == false) {
         self.labelDiscount.text = restaurant.sale;
@@ -112,7 +114,8 @@
         NSLog(@"error11: %@", error);
     }];
     
-    
+//    NSLog(@"---1 %@ %@", restaurant.name, self.labelDiscount.text);
+
     [self setNeedsLayout];
 }
 

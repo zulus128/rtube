@@ -137,20 +137,22 @@
     self.picker.layer.masksToBounds = YES;
 
     CGFloat gap = 8;
+    self.pickerHeight.constant = 150;
     if(IS_IPHONE_6P) {
         gap = 8;
-        self.pickerHeight.constant = 100;
+//        self.pickerHeight.constant = 180;
     } else if(IS_IPHONE_6) {
         gap = 0;
+//        self.pickerHeight.constant = 150;
     } else if (IS_IPHONE_5) {
         gap = -10;
         self.gap8.constant = 5;
-        self.pickerHeight.constant = 80;
+        self.pickerHeight.constant = 120;
         self.nameHeight.constant = 30;
     } else if (IS_IPHONE_4_OR_LESS) {
         gap = -20;
         self.gap8.constant = 2;
-        self.pickerHeight.constant = 60;
+        self.pickerHeight.constant = 90;
         self.nameHeight.constant = 10;
     }
     self.gap0.constant = gap;
@@ -161,6 +163,19 @@
     self.gap5.constant = gap;
     self.gap6.constant = gap;
     self.gap7.constant = gap;
+
+    int index = 0;
+    if([[ConstantsManager getInstance].city isEqualToString:@"moscow"]) {
+        index = 0;
+    } else if([[ConstantsManager getInstance].city isEqualToString:@"sochi"]) {
+        index = 1;
+    } else if([[ConstantsManager getInstance].city isEqualToString:@"rostov"]) {
+        index = 2;
+    } else  if([[ConstantsManager getInstance].city isEqualToString:@"krasnodar"]) {
+        index = 3;
+    }
+    [self.picker selectRow:index inComponent:0 animated:YES];
+    [self.buttonMoscow setTitle:self.cityList[index] forState:UIControlStateNormal];
 }
 
 - (void) dealloc
@@ -206,7 +221,7 @@
                                      }];
     
     self.labelBalance.text = [NSString stringWithFormat: @"%ld руб.", (long)[[Profile getInstance] m_balance]];
-    self.nameLabel.text = [[Profile getInstance] m_name];
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [[Profile getInstance] m_name], [[Profile getInstance] m_surname]];
 }
 
 -(UIImage*)resizeImage:(UIImage *)image imageSize:(CGSize)size
@@ -352,7 +367,14 @@
     [self.sideMenuViewController hideMenuViewController];
 }
 
-#pragma mark - 
+- (IBAction)onClickAbout:(id)sender {
+    CategoriesViewController* cat = [self.storyboard instantiateViewControllerWithIdentifier:@"categoriesViewController"];
+    cat.needsAboutOpen = YES;
+    [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:cat] animated:YES];
+    [self.sideMenuViewController hideMenuViewController];
+}
+
+#pragma mark -
 
 -(void) balanceChanged:(NSNotification*)notification
 {
@@ -403,10 +425,14 @@
         tView = [[UILabel alloc] init];
         [tView setTextAlignment:NSTextAlignmentCenter];
         [tView setTextColor:[UIColor colorWithRed:170/255.0f green:31/255.0f blue:74/255.0f alpha:1]];//aa1f4a
-        [tView setFont:[UIFont fontWithName:@"Helvetica" size:16]];
+        [tView setFont:[UIFont fontWithName:@"Helvetica" size:21]];
     }
     tView.text = self.cityList[row];
     return tView;
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
+    return 40;
 }
 
 @end

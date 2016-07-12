@@ -52,8 +52,6 @@ static int initialPage = 0;
 //        limit = 15;
 //    }
     
-
-
     [self.restaurants removeAllObjects];
 //       [ self.tableView reloadData];
     self.currentPage = 1;
