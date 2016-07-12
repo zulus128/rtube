@@ -1614,7 +1614,7 @@
                                                     <constraint firstItem="wMb-GK-ZHw" firstAttribute="leading" secondItem="DKA-Wn-fOR" secondAttribute="leading" id="zwT-aM-Fb6"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U3n-vI-khV">
+                                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="U3n-vI-khV">
                                                 <rect key="frame" x="0.0" y="406" width="320" height="98"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Стоит попробовать" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXw-wo-opp">
@@ -1635,13 +1635,13 @@
                                                         <color key="textColor" red="0.92941176469999998" green="0.17254901959999999" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" misplaced="YES" text="Шукша с перепелиными яйцами пашот в пряном томатном соусе" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TK9-Dy-pN2">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" text="Шукша с перепелиными яйцами пашот в пряном томатном соусе" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TK9-Dy-pN2">
                                                         <rect key="frame" x="14" y="37" width="206" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="divider-gray" translatesAutoresizingMaskIntoConstraints="NO" id="WeW-D2-RgE">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divider-gray" translatesAutoresizingMaskIntoConstraints="NO" id="WeW-D2-RgE">
                                                         <rect key="frame" x="15" y="97" width="290" height="1"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="F64-xM-ert"/>
@@ -1653,6 +1653,7 @@
                                                     <constraint firstItem="QXw-wo-opp" firstAttribute="leading" secondItem="U3n-vI-khV" secondAttribute="leading" constant="14" id="BUR-jN-AVo"/>
                                                     <constraint firstItem="WeW-D2-RgE" firstAttribute="leading" secondItem="U3n-vI-khV" secondAttribute="leading" constant="15" id="Bzs-D1-vfR"/>
                                                     <constraint firstItem="QXw-wo-opp" firstAttribute="top" secondItem="U3n-vI-khV" secondAttribute="top" constant="12" id="HD1-nf-har"/>
+                                                    <constraint firstAttribute="trailing" secondItem="TK9-Dy-pN2" secondAttribute="trailing" constant="100" id="HgB-yA-coJ"/>
                                                     <constraint firstItem="TK9-Dy-pN2" firstAttribute="top" secondItem="QXw-wo-opp" secondAttribute="bottom" constant="4" id="JQx-VD-0XY"/>
                                                     <constraint firstItem="TK9-Dy-pN2" firstAttribute="leading" secondItem="QXw-wo-opp" secondAttribute="leading" id="Lps-cM-eSY"/>
                                                     <constraint firstItem="Jg7-ll-GfV" firstAttribute="top" secondItem="TK9-Dy-pN2" secondAttribute="bottom" constant="4" id="Tgz-x9-vP7"/>
@@ -1671,7 +1672,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DLZ-d8-4wb">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DLZ-d8-4wb">
                                                 <rect key="frame" x="0.0" y="536" width="320" height="232"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -1806,7 +1807,7 @@
                                                     <outlet property="delegate" destination="oqe-8o-XtL" id="bXh-Q1-we1"/>
                                                 </connections>
                                             </tableView>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NPL-P9-vlr">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPL-P9-vlr">
                                                 <rect key="frame" x="0.0" y="768" width="320" height="210"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efZ-Wz-qgv">
@@ -2003,6 +2004,16 @@
                                     <constraint firstAttribute="centerY" secondItem="jCY-na-ipb" secondAttribute="centerY" constant="0.5" id="ygn-mD-nYi"/>
                                 </constraints>
                             </view>
+                            <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lbR-Ic-QFQ">
+                                <rect key="frame" x="40" y="720" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lbR-Ic-QFQ" secondAttribute="height" multiplier="1:1" id="ndw-i0-7Q8"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="RuD-7o-QdQ" appends="YES" id="dOk-fb-n44"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2015,12 +2026,15 @@
                             <constraint firstAttribute="trailing" secondItem="MGt-o8-SwV" secondAttribute="trailing" id="EnM-ks-OO0"/>
                             <constraint firstAttribute="trailing" secondItem="HJ9-Fs-PYc" secondAttribute="trailing" id="HHk-r8-O6H"/>
                             <constraint firstItem="HJ9-Fs-PYc" firstAttribute="top" secondItem="vsZ-V8-LxQ" secondAttribute="top" id="Hd9-Og-xzP"/>
+                            <constraint firstItem="lbR-Ic-QFQ" firstAttribute="height" secondItem="vsZ-V8-LxQ" secondAttribute="height" id="PMb-sI-irX"/>
                             <constraint firstAttribute="trailing" secondItem="jgJ-cI-Spg" secondAttribute="trailing" constant="15" id="QAl-uy-odL"/>
                             <constraint firstAttribute="trailing" secondItem="jfk-w2-mFK" secondAttribute="trailing" id="Uf2-gm-WQp"/>
                             <constraint firstItem="jfk-w2-mFK" firstAttribute="bottom" secondItem="jgJ-cI-Spg" secondAttribute="bottom" constant="-1" id="ZDd-Pr-zaf"/>
                             <constraint firstItem="MGt-o8-SwV" firstAttribute="top" secondItem="jgJ-cI-Spg" secondAttribute="bottom" constant="-2" id="acG-dI-QP3"/>
+                            <constraint firstItem="lbR-Ic-QFQ" firstAttribute="centerY" secondItem="vsZ-V8-LxQ" secondAttribute="centerY" id="dSS-fQ-Id6"/>
                             <constraint firstItem="6xS-ki-Ngr" firstAttribute="leading" secondItem="vsZ-V8-LxQ" secondAttribute="leading" constant="16" id="fkr-ZA-lHW"/>
                             <constraint firstItem="MGt-o8-SwV" firstAttribute="leading" secondItem="vsZ-V8-LxQ" secondAttribute="leading" id="oBh-7D-uLE"/>
+                            <constraint firstItem="lbR-Ic-QFQ" firstAttribute="centerX" secondItem="vsZ-V8-LxQ" secondAttribute="centerX" id="pWX-b4-Zhm"/>
                             <constraint firstItem="6xS-ki-Ngr" firstAttribute="centerY" secondItem="jfk-w2-mFK" secondAttribute="centerY" constant="-0.5" id="qHC-YF-X9N"/>
                             <constraint firstItem="jgJ-cI-Spg" firstAttribute="leading" secondItem="6xS-ki-Ngr" secondAttribute="trailing" constant="10" id="tqX-dO-ghu"/>
                         </constraints>
@@ -2053,6 +2067,7 @@
                         <outlet property="fadeView" destination="HJ9-Fs-PYc" id="u8p-q2-53y"/>
                         <outlet property="featuresArrow" destination="7nn-dm-PKt" id="YXP-f4-UOd"/>
                         <outlet property="featuresLabel" destination="ibn-N9-6u1" id="DRU-5r-4z9"/>
+                        <outlet property="fullScreenImage" destination="lbR-Ic-QFQ" id="PSi-Nt-g5j"/>
                         <outlet property="galleryPager" destination="rLo-Eo-K01" id="Bli-FQ-mUO"/>
                         <outlet property="galleryView" destination="HUX-JI-eEI" id="XSZ-hq-0Wn"/>
                         <outlet property="imageHead" destination="jfk-w2-mFK" id="OS2-EV-fEe"/>
@@ -2082,6 +2097,11 @@
                 <tapGestureRecognizer id="6Ip-L4-WQU">
                     <connections>
                         <action selector="tryImageClicked:" destination="oqe-8o-XtL" id="O41-VN-Tfu"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="RuD-7o-QdQ">
+                    <connections>
+                        <action selector="fullImageClicked:" destination="oqe-8o-XtL" id="OtZ-OO-fbd"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

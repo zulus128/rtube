@@ -504,9 +504,9 @@
     NSString* urlrequest = [NSString stringWithFormat:@"getRestaurant?id=%@&"
                             "params[img][width]=%f&params[img][height]=%f&params[img][method]=crop&"
                             "params[images][width]=%f&params[images][height]=%f&params[images][method]=crop&"
-                            "params[offset]=10&params[try_image][width]=%f&params[try_image][height]=%f&params[present][width]=%f&params[present][height]=%f"
+                            "params[offset]=10&params[try_image][width]=%f&params[try_image][height]=%f"
                             ,
-                            self.restaurant_Id, cellWidth*scaleFactor, cellHeight*scaleFactor, cellWidth*scaleFactor, cellHeight*scaleFactor, screenRect.size.width - 2 * 20, screenRect.size.width - 2 * 20, screenRect.size.width, screenRect.size.height];
+                            self.restaurant_Id, cellWidth*scaleFactor, cellHeight*scaleFactor, cellWidth*scaleFactor, cellHeight*scaleFactor, screenRect.size.height, screenRect.size.height];
     
     return [[RequestManager sharedManager] GET:urlrequest parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON)
             {

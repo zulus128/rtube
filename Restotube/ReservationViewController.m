@@ -54,11 +54,11 @@
 }
 
 - (IBAction)tryImageClicked:(id)sender {
-    if(!isLarge) {
-        [self makeFull];
-    } else {
-        [self makeSmall];
-    }
+//    if(!isLarge) {
+//        [self makeFull];
+//    } else {
+//        [self makeSmall];
+//    }
 }
 
 - (void)makeFull {

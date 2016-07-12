@@ -83,10 +83,10 @@
         _imageDiscountWidth.constant = 88;
     }
     else if(restaurant.presentDesc && ![restaurant.presentDesc isEqualToString:@""]) {
-        self.labelDiscount.text = restaurant.presentDesc;
+        self.labelDiscount.text = [NSString stringWithFormat:@"Подарок: %@", restaurant.presentDesc];
         
         NSDictionary *attributes = @{NSFontAttributeName: self.labelDiscount.font};
-        CGRect textRect = [restaurant.presentDesc boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 25) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
+        CGRect textRect = [self.labelDiscount.text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 25) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
         _imageDiscountWidth.constant = textRect.size.width + 20;
     } else {
         self.labelDiscount.hidden = true;

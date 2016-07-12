@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageToTryText;
 @property (weak, nonatomic) IBOutlet UIButton *likesButton;
+@property (weak, nonatomic) IBOutlet UIImageView *fullScreenImage;
 
 @end
 
@@ -43,59 +44,96 @@
     BOOL isLarge;
 }
 
+- (IBAction)fullImageClicked:(id)sender {
+    [self makeSmall];
+}
+
 - (IBAction)tryImageClicked:(id)sender {
-    if(!isLarge) {
+//    if(!isLarge) {
         [self makeFull];
-    } else {
-        [self makeSmall];
-    }
+//    } else {
+//        [self makeSmall];
+//    }
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return !isLarge;
 }
 
 - (void)makeFull {
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    self.tryImageWidth.constant = screenRect.size.width - 2 * 20;
-    self.tryImageHeight.constant = screenRect.size.width - 2 * 20;
-    self.tryImageToTryText.constant = -200;
-    [UIView animateWithDuration:TRY_ANIMATION_TIME - 0.05
+    self.fullScreenImage.hidden = NO;
+    self.fullScreenImage.alpha = 0;
+//    NSLog(@"--- %f %f", self.fullScreenImage.image.size.width, self.fullScreenImage.image.size.height);
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [self setNeedsStatusBarAppearanceUpdate];
+    [UIView animateWithDuration:TRY_ANIMATION_TIME
                           delay:0.0
                         options: UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         [self.view layoutIfNeeded];
+                         self.fullScreenImage.alpha = 1;
                      }
                      completion:^(BOOL finished){
-                         self->tryImageView.layer.cornerRadius = (screenRect.size.width - 2 * 20) / 2;
                          isLarge = YES;
                      }];
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-    animation.duration = TRY_ANIMATION_TIME;
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    animation.toValue = @((screenRect.size.width - 2 * 20) / 2);
-    animation.fillMode = kCAFillModeForwards;
-    animation.removedOnCompletion = YES;
-    [self->tryImageView.layer addAnimation:animation forKey:@"setCornerRadius:"];
+
+    //    CGRect screenRect = [[UIScreen mainScreen] bounds];
+//    self.tryImageWidth.constant = screenRect.size.width - 2 * 20;
+//    self.tryImageHeight.constant = screenRect.size.width - 2 * 20;
+//    self.tryImageToTryText.constant = -200;
+//    [UIView animateWithDuration:TRY_ANIMATION_TIME - 0.05
+//                          delay:0.0
+//                        options: UIViewAnimationOptionCurveEaseOut
+//                     animations:^{
+//                         [self.view layoutIfNeeded];
+//                     }
+//                     completion:^(BOOL finished){
+//                         self->tryImageView.layer.cornerRadius = (screenRect.size.width - 2 * 20) / 2;
+//                         isLarge = YES;
+//                     }];
+//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+//    animation.duration = TRY_ANIMATION_TIME;
+//    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+//    animation.toValue = @((screenRect.size.width - 2 * 20) / 2);
+//    animation.fillMode = kCAFillModeForwards;
+//    animation.removedOnCompletion = YES;
+//    [self->tryImageView.layer addAnimation:animation forKey:@"setCornerRadius:"];
+    
 }
 
 - (void)makeSmall {
-    self.tryImageWidth.constant = 65;
-    self.tryImageHeight.constant = 65;
-    self.tryImageToTryText.constant = 0;
-    [UIView animateWithDuration:TRY_ANIMATION_TIME - 0.05
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    [self setNeedsStatusBarAppearanceUpdate];
+    [UIView animateWithDuration:TRY_ANIMATION_TIME
                           delay:0.0
-                        options: UIViewAnimationOptionCurveEaseIn
+                        options: UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         [self.view layoutIfNeeded];
+                         self.fullScreenImage.alpha = 0;
                      }
                      completion:^(BOOL finished){
-                         self->tryImageView.layer.cornerRadius = 65 / 2;
                          isLarge = NO;
+                         self.fullScreenImage.hidden = YES;
                      }];
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
-    animation.duration = TRY_ANIMATION_TIME;
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    animation.toValue = @(65 / 2);
-    animation.fillMode = kCAFillModeForwards;
-    animation.removedOnCompletion = YES;
-    [self->tryImageView.layer addAnimation:animation forKey:@"setCornerRadius1:"];
+
+//    self.tryImageWidth.constant = 65;
+//    self.tryImageHeight.constant = 65;
+//    self.tryImageToTryText.constant = 0;
+//    [UIView animateWithDuration:TRY_ANIMATION_TIME - 0.05
+//                          delay:0.0
+//                        options: UIViewAnimationOptionCurveEaseIn
+//                     animations:^{
+//                         [self.view layoutIfNeeded];
+//                     }
+//                     completion:^(BOOL finished){
+//                         self->tryImageView.layer.cornerRadius = 65 / 2;
+//                         isLarge = NO;
+//                     }];
+//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"cornerRadius"];
+//    animation.duration = TRY_ANIMATION_TIME;
+//    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+//    animation.toValue = @(65 / 2);
+//    animation.fillMode = kCAFillModeForwards;
+//    animation.removedOnCompletion = YES;
+//    [self->tryImageView.layer addAnimation:animation forKey:@"setCornerRadius1:"];
 }
 
 - (void)viewDidLoad {
@@ -181,6 +219,7 @@
             tryImageView.layer.cornerRadius = tryImageView.frame.size.width/2;
            
             __weak UIImageView *weakImageView = tryImageView;
+            __weak UIImageView *fullImageView = self.fullScreenImage;
             NSURL *assetsBaseUrl = [RequestManager sharedManager].assetsBaseUrl;
             NSURL *imageUrl = [[NSURL alloc] initWithString:_restaurants.try_image relativeToURL:assetsBaseUrl];
             NSURLRequest* req_bg = [NSURLRequest requestWithURL:imageUrl];
@@ -190,6 +229,7 @@
                  UIImageView *strongImageView = weakImageView;
                  if (!strongImageView) return;
                  strongImageView.image = image;
+                 fullImageView.image = image;
              }
                                                failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error)
              {
