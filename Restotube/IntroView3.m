@@ -13,6 +13,8 @@
 -(void)commonInit
 {
     [super commonInit];
+    self.intro.layer.cornerRadius = 19.0f;
+    self.intro.layer.masksToBounds = YES;
     
 }
 

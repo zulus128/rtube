@@ -10,5 +10,6 @@
 
 @interface IntroView3 : ViewFromXib
 @property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UIImageView *intro;
 
 @end

@@ -11,4 +11,5 @@
 @interface NearMeViewController : UIViewController
 @property (nonatomic, assign) BOOL needsSale;
 @property (nonatomic, assign) BOOL needsGift;
+@property (assign, readwrite) NSInteger currentAddress;
 @end

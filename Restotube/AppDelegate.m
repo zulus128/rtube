@@ -27,6 +27,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    application.statusBarHidden = NO;
+    
+
     // check for first time launch
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"launchedBefore"])
     {

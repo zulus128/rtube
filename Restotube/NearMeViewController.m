@@ -24,6 +24,7 @@
 }
 @property (nonatomic, strong) NSArray *restaurants;
 @property (nonatomic, strong) NSMutableArray *sortedRestaurants;
+@property (nonatomic, strong) NSMutableArray *sortedAddresses;
 @property (nonatomic, strong) NSMutableArray *sortedDistanse;
 @property (nonatomic,retain) UIActivityIndicatorView *activityIndicatorObject;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -118,8 +119,10 @@
 - (void)prepeareSorted
 {
     NSMutableDictionary *locations = [NSMutableDictionary new];
+    NSMutableDictionary *addresses = [NSMutableDictionary new];
     NSMutableArray *empty = [NSMutableArray array];
     NSMutableArray *emptyDist = [NSMutableArray array];
+    NSMutableArray *emptyAddr = [NSMutableArray array];
     for(int i = 0 ; i < [self.restaurants count] ; i ++ ) {
         Restaurants* restaurant = [self.restaurants objectAtIndex:i];
         BOOL isGift = NO;
@@ -150,29 +153,42 @@
             coordinate.longitude =  [address.lon doubleValue];
 
             CLLocationDistance distance = distance =  GMSGeometryDistance(_myLocation.coordinate,coordinate);
-            if (d > distance) {
+//            if (d > distance) {
                 d = distance;
-            }
-        }
+//            }
         if(!isGift && !isSale) {
             [empty addObject:restaurant];
             [emptyDist addObject:@(d / 1000)];
+            [emptyAddr addObject:@(j + 1)];
             continue;
         }
 
-        [locations setObject:restaurant forKey:@(d / 1000)];
+        while ([locations objectForKey:@(d / 1000)]) {
+            d += 5;
+        }
+            [locations setObject:restaurant forKey:@(d / 1000)];
+            [addresses setObject:@(j + 1) forKey:@(d / 1000)];
+//        NSLog(@"----- %@ %@", restaurant.name, @(d / 1000));
+        }
     }
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
     NSArray *sortedKeys = [[locations allKeys] sortedArrayUsingDescriptors:@[descriptor]];
     
     self.sortedDistanse = [NSMutableArray arrayWithArray: sortedKeys];
     _sortedRestaurants = [NSMutableArray new];
+    _sortedAddresses = [NSMutableArray new];
     for (NSNumber *key in sortedKeys)
     {
         [_sortedRestaurants addObject:[locations objectForKey:key]];
+        [_sortedAddresses addObject:[addresses objectForKey:key]];
     }
     [_sortedRestaurants addObjectsFromArray:empty];
     [self.sortedDistanse addObjectsFromArray:emptyDist];
+    [self.sortedAddresses addObjectsFromArray:emptyAddr];
+//    for(int i = 0; i < _sortedRestaurants.count; i++) {
+//        Restaurants *r = _sortedRestaurants[i];
+//        NSLog(@"----- %@ %@ %@", r.name, _sortedDistanse[i], _sortedAddresses[i]);
+//    }
 }
 
 - (NSInteger) tableView: (UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -189,6 +205,7 @@
     }
     cell.imageViewBackground.image = nil;
     [cell setRestaurant:[_sortedRestaurants objectAtIndex:(NSUInteger) indexPath.row]];
+    cell.currentAddress = [[_sortedAddresses objectAtIndex:indexPath.row] intValue];
     cell.labelDistance.text = @"";
     
     NSArray* addresses = cell.restaurantInfo.addresses;
@@ -203,6 +220,9 @@
         cell.labelDistance.text = @"...";
     }
     
+//    Restaurants *r = _sortedRestaurants[indexPath.row];
+//    NSLog(@"----- %@ %@", r.name, _sortedDistanse[indexPath.row]);
+
     return cell;
 }
 
@@ -210,6 +230,7 @@
 {    
     Restaurants *category = self.sortedRestaurants[indexPath.row];
     [self performSegueWithIdentifier:@"restaurantsDetailSegue" sender:category];
+    self.currentAddress = [[_sortedAddresses objectAtIndex:indexPath.row] intValue];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -219,6 +240,7 @@
     {
         RestaurantsDetailViewController *controller = (RestaurantsDetailViewController *)segue.destinationViewController;
         controller.restaurants = (Restaurants *)sender;
+        controller.currentAddress = self.currentAddress;
     }
 }
 

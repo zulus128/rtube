@@ -184,7 +184,11 @@
             viewsLabel.text = [NSString stringWithFormat:@"%ld", (long)_restaurants.views];
             averageCheckLabel.text = _restaurants.averages;
             
-            addressLabel.text = [_restaurants addressListToText];
+            if(self.currentAddress) {
+                addressLabel.text = ((Addresses *)_restaurants.addresses[self.currentAddress - 1]).name;
+            } else {
+                addressLabel.text = [_restaurants addressListToText];
+            }
             
             CGRect textRect = [addressLabel.text boundingRectWithSize:CGSizeMake(addressLabel.frame.size.width, 99999)
                                                      options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)

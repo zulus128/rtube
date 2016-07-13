@@ -45,6 +45,21 @@
     if([self.restaurantInfo.addresses count]) {
         CLLocationCoordinate2D _mylocation = [[MapsInstance getInstance] getMyLocation];
         CLLocationDistance d = MAXFLOAT;
+        if(self.currentAddress) {
+
+            Addresses* address = [self.restaurantInfo.addresses objectAtIndex:(self.currentAddress - 1)];
+            CLLocationCoordinate2D coordinate;
+            coordinate.latitude = [address.lat doubleValue];
+            coordinate.longitude =  [address.lon doubleValue];
+            
+            CLLocationDistance distance =  GMSGeometryDistance(_mylocation,coordinate);
+//            if (d > distance)
+            {
+                d = distance;
+            }
+//                        NSLog(@"----- %@ %lu %f %f %f", _restaurantInfo.name, self.currentAddress, coordinate.latitude, coordinate.longitude, d);
+
+        } else
         for(int j = 0; j < [self.restaurantInfo.addresses count]; j++) {
             Addresses* address = [self.restaurantInfo.addresses objectAtIndex:j];
             CLLocationCoordinate2D coordinate;
@@ -60,6 +75,7 @@
         d = d / 1000;
         NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
         [fmt setPositiveFormat:@"0.#"];
+//        NSString* format = [ NSString stringWithFormat:@"%ld %@ км",(long)self.restaurantInfo.currentAddress, [fmt stringFromNumber:[NSNumber numberWithFloat:d]]];
         NSString* format = [ NSString stringWithFormat:@"%@ км", [fmt stringFromNumber:[NSNumber numberWithFloat:d]]];
         self.labelDistance.text = format;
     }
@@ -114,7 +130,7 @@
         NSLog(@"error11: %@", error);
     }];
     
-//    NSLog(@"---1 %@ %@", restaurant.name, self.labelDiscount.text);
+//    NSLog(@"---1 %@ %d", restaurant.name, restaurant.currentAddress);
 
     [self setNeedsLayout];
 }

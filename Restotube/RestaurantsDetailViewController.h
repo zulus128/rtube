@@ -64,6 +64,7 @@
 
 @property (nonatomic, readonly) MPMoviePlayerViewController *galleryPlayer;
 @property (nonatomic, strong) Restaurants *restaurants;
+@property (assign, readwrite) NSInteger currentAddress;
 
 - (IBAction)sendReviewPressed:(id)sender;
 - (IBAction)sendErrorPressed:(id)sender;

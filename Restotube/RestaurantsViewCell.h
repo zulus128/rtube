@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelAverage;
 @property (weak, nonatomic) IBOutlet UILabel *labelLikes;
 @property (weak, nonatomic) IBOutlet UILabel *labelDistance;
+
+@property (assign, readwrite) NSInteger currentAddress;
+
 @property (nonatomic, strong) Restaurants *restaurantInfo;
 - (void) setRestaurant:(Restaurants *)restaurant;
 @end

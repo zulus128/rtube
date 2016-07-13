@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroView2"/>
@@ -13,52 +11,22 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro2" translatesAutoresizingMaskIntoConstraints="NO" id="HEI-7D-Cb8">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="354"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="HEI-7D-Cb8" secondAttribute="height" multiplier="213:235" id="0sF-yi-wmQ"/>
-                    </constraints>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="iphone-restotube_2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="kCz-0P-fOP">
+                    <rect key="frame" x="47" y="192" width="240" height="128"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Всего за 50 рублей получай" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YZX-PG-8uz">
-                    <rect key="frame" x="50" y="372" width="220" height="26"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" СКИДКИ до 25% " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ym5-mc-WnB">
-                    <rect key="frame" x="80" y="403" width="160" height="26"/>
-                    <color key="backgroundColor" red="0.89411764709999997" green="0.070588235289999995" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="или подарки в любимых ресторанах" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QiH-wb-iAw">
-                    <rect key="frame" x="66" y="431" width="188" height="51"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="HEI-7D-Cb8" secondAttribute="trailing" id="2uv-eC-SaG"/>
-                <constraint firstItem="ym5-mc-WnB" firstAttribute="top" secondItem="YZX-PG-8uz" secondAttribute="bottom" constant="5" id="7OG-QQ-krd"/>
-                <constraint firstItem="HEI-7D-Cb8" firstAttribute="width" secondItem="YZX-PG-8uz" secondAttribute="width" multiplier="1.45" id="F5l-sk-gse"/>
-                <constraint firstItem="YZX-PG-8uz" firstAttribute="top" secondItem="HEI-7D-Cb8" secondAttribute="bottom" constant="18" id="Ls6-1e-lJg"/>
-                <constraint firstItem="ym5-mc-WnB" firstAttribute="width" secondItem="HEI-7D-Cb8" secondAttribute="width" multiplier="0.5" id="MNf-K9-min"/>
-                <constraint firstItem="HEI-7D-Cb8" firstAttribute="top" secondItem="371-gp-kY3" secondAttribute="top" id="R7H-9U-5gl"/>
-                <constraint firstAttribute="centerX" secondItem="ym5-mc-WnB" secondAttribute="centerX" id="eMZ-qF-WI0"/>
-                <constraint firstItem="QiH-wb-iAw" firstAttribute="width" secondItem="YZX-PG-8uz" secondAttribute="width" multiplier="0.85" id="eZ7-h6-bKm"/>
-                <constraint firstAttribute="centerX" secondItem="QiH-wb-iAw" secondAttribute="centerX" id="mTS-ch-v1m"/>
-                <constraint firstAttribute="centerX" secondItem="YZX-PG-8uz" secondAttribute="centerX" id="mi3-vL-kl8"/>
-                <constraint firstItem="QiH-wb-iAw" firstAttribute="top" secondItem="ym5-mc-WnB" secondAttribute="bottom" constant="2" id="pIt-es-VIw"/>
-                <constraint firstItem="HEI-7D-Cb8" firstAttribute="leading" secondItem="371-gp-kY3" secondAttribute="leading" id="uh7-h4-fd5"/>
+                <constraint firstAttribute="bottom" secondItem="kCz-0P-fOP" secondAttribute="bottom" id="AXc-i3-8MH"/>
+                <constraint firstItem="kCz-0P-fOP" firstAttribute="top" secondItem="371-gp-kY3" secondAttribute="top" id="Tge-cS-JbH"/>
+                <constraint firstItem="kCz-0P-fOP" firstAttribute="leading" secondItem="371-gp-kY3" secondAttribute="leading" id="rAW-N6-NiB"/>
+                <constraint firstAttribute="trailing" secondItem="kCz-0P-fOP" secondAttribute="trailing" id="vfZ-Bk-raP"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="343" y="402"/>
         </view>
     </objects>
     <resources>
-        <image name="intro2" width="211" height="232"/>
+        <image name="iphone-restotube_2.jpg" width="1242" height="2208"/>
     </resources>
 </document>
