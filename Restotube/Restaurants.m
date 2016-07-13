@@ -549,7 +549,7 @@
     if (!userHash)
         userHash = @"";
     
-    NSDictionary *params = @{@"id" : self.restaurant_Id, @"hash" : userHash};
+    NSDictionary *params = @{@"id" : self.restaurant_Id, @"hash" : [userHash stringByAddingPercentEscapesUsingEncoding:                                                                                                       NSUTF8StringEncoding]};
     
     return [[RequestManager sharedManager] GET:urlrequest parameters:params success:^(NSURLSessionDataTask * __unused task, id JSON)
             {

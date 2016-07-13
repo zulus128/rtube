@@ -283,7 +283,7 @@
     {
         CGFloat offsetHeight = view.frame.size.height + view.frame.origin.y - (mainScroll.frame.size.height - keyboardHeight);
         offsetHeight = offsetHeight < 0 ? 0 : offsetHeight;
-        [mainScroll setContentOffset:CGPointMake(0, offsetHeight) animated:YES];
+        [mainScroll setContentOffset:CGPointMake(0, offsetHeight + 70) animated:YES];
     }
 }
 

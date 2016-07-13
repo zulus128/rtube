@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageToTryText;
 @property (weak, nonatomic) IBOutlet UIButton *likesButton;
 @property (weak, nonatomic) IBOutlet UIImageView *fullScreenImage;
+@property (weak, nonatomic) IBOutlet UIButton *reserveButton;
 
 @end
 
@@ -266,10 +267,22 @@
 //            }];
     
     [self setLikeColor];
+    
+    if(!_restaurants.saleint) {
+        if (_restaurants.presentDesc.length == 0)
+        {
+            self.reserveButton.enabled = NO;
+            [self.reserveButton setTitle:@"Бронь временно недоступна" forState:UIControlStateNormal];
+            [self.reserveButton setBackgroundColor:[UIColor colorWithRed:96.0/255.0 green:96.0/255.0 blue:96.0/255.0 alpha:1.0]];
+        }
+    }
 }
 
 - (void)setLikeColor {
-    NSString* urlrequest = [NSString stringWithFormat:@"isUserSetRestLike?rest_id=%@&hash=%@", _restaurants.restaurant_Id, [Profile getInstance].m_hash ? [Profile getInstance].m_hash : @""];
+//    UIDevice *device = [UIDevice currentDevice];
+//    NSString  *currentDeviceId = [[device identifierForVendor]UUIDString];
+
+    NSString* urlrequest = [NSString stringWithFormat:@"isUserSetRestLike?rest_id=%@&hash=%@", _restaurants.restaurant_Id, [Profile getInstance].m_hash ? [Profile getInstance].m_hash : @""/*currentDeviceId*/];
     [[RequestManager sharedManager] GET:urlrequest parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON)
      {
 //         NSLog(@"--- Success: %@", JSON);
@@ -499,7 +512,11 @@
         imgPath =_restaurants.images[indexPath.row];
 
     [cell fillWithImage:imgPath atIndexPath:indexPath];
-    
+
+    if (indexPath.row == 0) {
+        cell.playButton.hidden = !_restaurants.video.count;
+    }
+
     return cell;
 }
 
@@ -659,9 +676,14 @@
     } completion:nil];
 }
 
-- (void)likePressed:(id)sender
-{
+- (void)likePressed:(id)sender {
+    
+//    UIDevice *device = [UIDevice currentDevice];
+//    NSString  *currentDeviceId = [[device identifierForVendor]UUIDString];
+//    NSLog(@"+++ %@", currentDeviceId);
+    
     [self.restaurants likeRestaurantForUser:[Profile getInstance].m_hash withCompletion:^(NSError *error) {
+//    [self.restaurants likeRestaurantForUser:currentDeviceId withCompletion:^(NSError *error) {
         likesLabel.text = [NSString stringWithFormat:@"%ld", (long)_restaurants.likes];
         [self.likesButton setSelected:YES];
     }];

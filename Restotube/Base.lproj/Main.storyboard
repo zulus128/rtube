@@ -256,7 +256,7 @@
                             <pickerView hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VxX-lo-QM9">
                                 <rect key="frame" x="6" y="591" width="213" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="2ox-wU-L9z"/>
+                                    <constraint firstAttribute="width" constant="180" id="2ox-wU-L9z"/>
                                     <constraint firstAttribute="height" constant="20" id="xx0-bk-2Oa"/>
                                 </constraints>
                                 <connections>
@@ -2077,6 +2077,7 @@
                         <outlet property="likesButton" destination="2FV-Aw-9pp" id="OiJ-Yx-muA"/>
                         <outlet property="likesLabel" destination="umR-gQ-xQ2" id="dC5-j7-Sol"/>
                         <outlet property="mainScroll" destination="MGt-o8-SwV" id="FgU-7j-YQu"/>
+                        <outlet property="reserveButton" destination="U0U-GT-FDR" id="psD-mY-cW4"/>
                         <outlet property="reviewLabel" destination="85I-Wr-az3" id="B65-h0-Cmn"/>
                         <outlet property="topContainer" destination="6Pc-UW-wbM" id="RNi-vS-eMf"/>
                         <outlet property="topContainerHeight" destination="lHU-Rr-9fA" id="epD-Z2-xOV"/>
