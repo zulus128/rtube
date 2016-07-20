@@ -25,6 +25,20 @@
 
 #define TRY_ANIMATION_TIME1 0.35
 
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
 @interface ReservationViewController() {
     BOOL isLarge;
 }
@@ -37,6 +51,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tryImageToTryText;
+@property (weak, nonatomic) IBOutlet UILabel *bottomText;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toPresentText;
 
 @end
 
@@ -172,6 +188,8 @@
             } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                 NSLog(@"error: %@", error);
             }];
+            self.bottomText.hidden = NO;
+            self.bottomText.text = _restaurant.presentDesc;
         }
     }
     else {
@@ -179,6 +197,7 @@
         [resrveWithDiscountButton setTitle:str forState:UIControlStateNormal];
         [resrveButton setHidden:YES];
         [self.bottomPicture setImage:[UIImage imageNamed:@"salepic"]];
+        self.bottomText.hidden = YES;
     }
     
     if (_restaurant.presentDesc.length == 0)
@@ -245,8 +264,21 @@
     _infoLabel3.hidden = YES;
     
     self.bottomPicture.layer.cornerRadius = 120 / 2;
-    self.bottomPicture.layer.masksToBounds = YES;
     
+    CGFloat h = 40;
+    if(IS_IPHONE_5) {
+        h = 60;
+    } else if(IS_IPHONE_6) {
+        self.toPresentText.constant = 15;
+        h = 140;
+    } else    if(IS_IPHONE_6P) {
+        self.toPresentText.constant = 30;
+        h = 170;
+    }
+    self.tryImageWidth.constant = h;
+    self.tryImageHeight.constant = h;
+    self.bottomPicture.layer.cornerRadius = h / 2;
+    self.bottomPicture.layer.masksToBounds = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated

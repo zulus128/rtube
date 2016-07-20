@@ -31,7 +31,7 @@
     
 
     // check for first time launch
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"launchedBefore"])
+//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"launchedBefore"])
     {
         _isFirstTimeLaunch = YES;
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"launchedBefore"];

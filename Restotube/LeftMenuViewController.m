@@ -211,7 +211,7 @@
     [self.imageAvatar setImageWithURLRequest:avatarRequest
                             placeholderImage:[UIImage imageNamed:@"no-photo"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image)
      {
-         _imageAvatar.image = [self resizeImage:image imageSize: CGSizeMake(70, 70)];
+         _imageAvatar.image = image;//[self resizeImage:image imageSize: CGSizeMake(70, 70)];
          self.imageAvatar.layer.cornerRadius = 90 / 2;
          self.imageAvatar.layer.masksToBounds = YES;
          self.imageAvatar.layer.borderWidth  = 0;

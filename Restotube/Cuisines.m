@@ -24,6 +24,10 @@
     return self;
 }
 
+- (NSComparisonResult)compare:(Cuisines *)otherObject {
+    return [self.name compare:otherObject.name];
+}
+
 + (NSURLSessionDataTask *)cuisinesWithBlock:(void (^)(NSArray *, NSError *))block {
     NSString* urlrequest = [NSString stringWithFormat:@"getCuisines"];
     
@@ -35,8 +39,10 @@
             [mulableCuisines addObject:cuisine];
         }
         
+        NSArray *sortedArray = [mulableCuisines sortedArrayUsingSelector:@selector(compare:)];
+
         if (block) {
-            block([NSArray arrayWithArray:mulableCuisines], nil);
+            block([NSArray arrayWithArray:sortedArray], nil);
         }
     } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
         if (block) {
