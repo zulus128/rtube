@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) UIScrollView      *scrollView;
 @property (strong, nonatomic) UIPageControl     *pageControl;
+@property (strong, nonatomic) UIView *overView;
 
 @end
 
@@ -70,6 +71,7 @@
 //    view3.frame = CGRectMake(0, 0, self.view.frame.size.width, view3.button.frame.origin.y + view3.button.frame.size.height + _pageControl.frame.size.height);
     view3.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [view3.button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    view3.button.hidden = YES;
     
 //    IntroView *view3 = [[IntroView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 //    [view3 layoutIfNeeded];
@@ -80,6 +82,8 @@
     UIScrollView *scroll3 = [[UIScrollView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * 2, 0, self.view.frame.size.width, self.view.frame.size.height)];
     view3.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     scroll3.contentSize = CGSizeMake(view3.frame.size.width, view3.frame.size.height);
+    scroll3.scrollEnabled = NO;
+    [scroll3 delaysContentTouches];
     [scroll3 addSubview:view3];
     // view3.button.frame.origin.y + view3.button.frame.size.height + _pageControl.frame.size.height
     
@@ -89,6 +93,8 @@
     
     [self.view addSubview:_scrollView];
     [self.view addSubview:_pageControl];
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonPressed:)];
+    [view3 addGestureRecognizer:tapRecognizer];
 }
 
 -(void)viewWillLayoutSubviews
@@ -116,6 +122,22 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     _pageControl.currentPage = (scrollView.contentOffset.x + scrollView.frame.size.width / 2) / scrollView.frame.size.width;
+//    NSLog(@"--- %d", _pageControl.currentPage);
+
+    if(_pageControl.currentPage > 1) {
+        if(!self.overView) {
+            self.overView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, 0, self.view.frame.size.width / 2, self.view.frame.size.height)];
+            [self.view addSubview:self.overView];
+            UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(buttonPressed:)];
+            [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+            [self.overView addGestureRecognizer:swipeLeft];
+            UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonPressed:)];
+            [self.overView addGestureRecognizer:tapRecognizer];
+        }
+    } else {
+        [self.overView removeFromSuperview];
+        self.overView = nil;
+    }
 }
 
 @end

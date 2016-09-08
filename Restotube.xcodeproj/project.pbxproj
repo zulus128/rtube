@@ -1071,7 +1071,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.resto.tube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "42e318d9-de50-4082-a204-4ede795ec359";
+				PROVISIONING_PROFILE = "6afd4f1a-3f56-4600-85e2-74b8b533f009";
 			};
 			name = Debug;
 		};
@@ -1089,7 +1089,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.resto.tube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "42e318d9-de50-4082-a204-4ede795ec359";
+				PROVISIONING_PROFILE = "6afd4f1a-3f56-4600-85e2-74b8b533f009";
 			};
 			name = Release;
 		};

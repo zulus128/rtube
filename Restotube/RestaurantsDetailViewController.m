@@ -248,6 +248,15 @@
             if (!isReviewsLoading)
                 fadeView.hidden = YES;
         }];
+        
+        if(!_restaurants.saleint) {
+            if (_restaurants.presentDesc.length == 0)
+            {
+                self.reserveButton.enabled = NO;
+                [self.reserveButton setTitle:@"Бронь временно недоступна" forState:UIControlStateNormal];
+                [self.reserveButton setBackgroundColor:[UIColor colorWithRed:96.0/255.0 green:96.0/255.0 blue:96.0/255.0 alpha:1.0]];
+            }
+        }
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:task delegate:nil];
@@ -271,15 +280,6 @@
 //            }];
     
     [self setLikeColor];
-    
-    if(!_restaurants.saleint) {
-        if (_restaurants.presentDesc.length == 0)
-        {
-            self.reserveButton.enabled = NO;
-            [self.reserveButton setTitle:@"Бронь временно недоступна" forState:UIControlStateNormal];
-            [self.reserveButton setBackgroundColor:[UIColor colorWithRed:96.0/255.0 green:96.0/255.0 blue:96.0/255.0 alpha:1.0]];
-        }
-    }
 }
 
 - (void)setLikeColor {
