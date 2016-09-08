@@ -31,14 +31,14 @@
     
 
     // check for first time launch
-//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"launchedBefore"])
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"launchedBefore"])
     {
         _isFirstTimeLaunch = YES;
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"launchedBefore"];
     }
-//    else {
-//        sleep(2);
-//    }
+    else {
+        sleep(2);
+    }
     
     // Override point for customization after application launch.
     [GMSServices provideAPIKey:@"AIzaSyDTePL9WprHROYZQYAs6fZXqhLYaeVfrMM"];
