@@ -255,8 +255,16 @@
                 self.reserveButton.enabled = NO;
                 [self.reserveButton setTitle:@"Бронь временно недоступна" forState:UIControlStateNormal];
                 [self.reserveButton setBackgroundColor:[UIColor colorWithRed:96.0/255.0 green:96.0/255.0 blue:96.0/255.0 alpha:1.0]];
+            } else {
+                NSString* str = [NSString stringWithFormat:@"Забронировать c подарком"];
+                self.reserveButton.enabled = YES;
+                [self.reserveButton setTitle:str forState:UIControlStateNormal];
             }
-        }
+        } else {
+                NSString* str = [NSString stringWithFormat:@"Забронировать со скидкой %ld%%", (long)_restaurants.saleint];
+                self.reserveButton.enabled = YES;
+                [self.reserveButton setTitle:str forState:UIControlStateNormal];
+            }
     }];
     
     [UIAlertView showAlertViewForTaskWithErrorOnCompletion:task delegate:nil];

@@ -19,8 +19,6 @@
 @property (strong,nonatomic) GMSMapView* googleMapsView;
 @end
 
-
-
 @implementation MapsViewController 
 @synthesize activityIndicatorObject;
 
@@ -77,6 +75,14 @@
     for(int i = 0 ; i < [self.restaurants count] ; i ++ ) {
         Restaurants* restaurant = [self.restaurants objectAtIndex:i];
         NSString* name =  restaurant.name;
+        BOOL isSale = NO;
+//        if(!restaurant.saleint) {
+//            if (restaurant.presentDesc.length > 0) {
+//                isSale = YES;
+//            }
+//        } else {
+//            isSale = YES;
+//        }
         
         for(int j = 0; j < [restaurant.addresses count]; j++) {
             Addresses* address = [restaurant.addresses objectAtIndex:j];
@@ -85,8 +91,9 @@
             coordinate.latitude =  [address.lat floatValue];
             coordinate.longitude = [address.lon floatValue];
             UIMapsMarker *marker = [[UIMapsMarker alloc] init];
+            
             [marker setId:i];
-            [marker setIcon:[UIImage restaurantTitleImageWithTitle:name]];
+            [marker setIcon:[UIImage restaurantTitleImageWithTitle:name isSale:isSale]];
             [marker setPosition:coordinate];
             [marker setMap:_googleMapsView];
             

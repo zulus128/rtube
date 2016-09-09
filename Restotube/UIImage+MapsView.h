@@ -10,5 +10,5 @@
 
 @interface UIImage (MapsView)
 
-+ (UIImage *) restaurantTitleImageWithTitle:(NSString *)title;
++ (UIImage *) restaurantTitleImageWithTitle:(NSString *)title isSale:(BOOL)isSale;
 @end

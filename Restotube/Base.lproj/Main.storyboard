@@ -24,7 +24,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9XU-gH-dBo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1321" y="-2545"/>
+            <point key="canvasLocation" x="-1566" y="-2532"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="Szq-mY-tJW">
@@ -69,7 +69,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <inset key="titleEdgeInsets" minX="11" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Категории" image="cats">
+                                <state key="normal" title="Подборки" image="cats">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -85,7 +85,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Рестораны" image="rests">
+                                <state key="normal" title="Все рестораны" image="rests">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -279,16 +279,16 @@
                             <constraint firstItem="Xai-Ea-Zsh" firstAttribute="top" secondItem="TIU-qw-V8n" secondAttribute="bottom" constant="20" id="D0q-l3-gX9"/>
                             <constraint firstItem="Tx6-GO-X2N" firstAttribute="top" secondItem="bjm-0V-Pzg" secondAttribute="bottom" constant="8" id="Erk-Qs-SkR"/>
                             <constraint firstItem="jjT-VW-Qf6" firstAttribute="top" secondItem="2p0-UU-HGI" secondAttribute="bottom" constant="8" id="Exe-Qe-B9t"/>
-                            <constraint firstItem="CTv-5Z-MTl" firstAttribute="leading" secondItem="3i3-FW-V6z" secondAttribute="leading" constant="21" id="H1a-ba-ei0"/>
-                            <constraint firstItem="Lzd-sl-stw" firstAttribute="leading" secondItem="3i3-FW-V6z" secondAttribute="leading" constant="21" id="KEq-VC-NEK"/>
-                            <constraint firstItem="Ebh-08-Tyw" firstAttribute="leading" secondItem="3i3-FW-V6z" secondAttribute="leading" constant="21" id="N7B-BX-fSU"/>
+                            <constraint firstItem="CTv-5Z-MTl" firstAttribute="leading" secondItem="3i3-FW-V6z" secondAttribute="leading" constant="10" id="H1a-ba-ei0"/>
+                            <constraint firstItem="Lzd-sl-stw" firstAttribute="leading" secondItem="3i3-FW-V6z" secondAttribute="leading" constant="10" id="KEq-VC-NEK"/>
+                            <constraint firstItem="Ebh-08-Tyw" firstAttribute="leading" secondItem="3i3-FW-V6z" secondAttribute="leading" constant="10" id="N7B-BX-fSU"/>
                             <constraint firstItem="Xai-Ea-Zsh" firstAttribute="leading" secondItem="3i3-FW-V6z" secondAttribute="leading" constant="21" id="Olz-P2-Omd"/>
                             <constraint firstItem="2p0-UU-HGI" firstAttribute="top" secondItem="Lzd-sl-stw" secondAttribute="bottom" constant="8" id="Pkb-g7-P8V"/>
                             <constraint firstItem="bjm-0V-Pzg" firstAttribute="top" secondItem="TIU-qw-V8n" secondAttribute="bottom" constant="30" id="Vca-5N-LGT"/>
                             <constraint firstItem="FjM-Eb-Zpf" firstAttribute="leading" secondItem="3i3-FW-V6z" secondAttribute="leading" constant="21" id="WyS-gr-Nrg"/>
                             <constraint firstItem="FhM-CJ-NIN" firstAttribute="top" secondItem="Xai-Ea-Zsh" secondAttribute="bottom" constant="2" id="XpN-gS-XNf"/>
                             <constraint firstItem="vj0-9d-a9g" firstAttribute="top" secondItem="WtJ-GT-Mnk" secondAttribute="bottom" constant="8" id="YhJ-pF-xJD"/>
-                            <constraint firstItem="2p0-UU-HGI" firstAttribute="leading" secondItem="3i3-FW-V6z" secondAttribute="leading" constant="21" id="asB-v8-yz9"/>
+                            <constraint firstItem="2p0-UU-HGI" firstAttribute="leading" secondItem="3i3-FW-V6z" secondAttribute="leading" constant="10" id="asB-v8-yz9"/>
                             <constraint firstItem="WtJ-GT-Mnk" firstAttribute="leading" secondItem="CTv-5Z-MTl" secondAttribute="leading" id="gnS-1h-zZf"/>
                             <constraint firstItem="vj0-9d-a9g" firstAttribute="leading" secondItem="WtJ-GT-Mnk" secondAttribute="leading" id="hPD-pr-Yfd"/>
                             <constraint firstItem="Lzd-sl-stw" firstAttribute="top" secondItem="vj0-9d-a9g" secondAttribute="bottom" constant="8" id="j3L-vN-klk"/>
@@ -333,7 +333,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hYz-HR-pg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-930" y="-2472"/>
+            <point key="canvasLocation" x="-1090" y="-2455"/>
         </scene>
         <!--About Controller-->
         <scene sceneID="I2n-Sx-CNH">
@@ -951,7 +951,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="stQ-7T-e2U" kind="relationship" relationship="rootViewController" id="X75-PP-sEf"/>
+                        <segue destination="btb-3j-b86" kind="relationship" relationship="rootViewController" id="Ztn-bD-B0D"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7eq-SB-jgq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3912,7 +3912,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GqA-fJ-5xq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1321" y="-1863"/>
+            <point key="canvasLocation" x="-1560" y="-1837"/>
         </scene>
         <!--Categories View Controller-->
         <scene sceneID="DMK-kW-KNf">
@@ -4981,17 +4981,16 @@ Restotube гарантирует передавать ваши
         <image name="vkontakteShareButton_selected" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N36-n8-ISm"/>
-        <segue reference="I7e-9d-Fgu"/>
+        <segue reference="Y2w-Jr-qdy"/>
         <segue reference="dot-XF-33i"/>
         <segue reference="mPa-cy-IYX"/>
         <segue reference="4Tu-88-3xg"/>
-        <segue reference="Y2w-Jr-qdy"/>
+        <segue reference="I7e-9d-Fgu"/>
         <segue reference="9q1-wT-gXW"/>
         <segue reference="CrV-N2-cmX"/>
         <segue reference="Ubx-Yx-474"/>
+        <segue reference="N36-n8-ISm"/>
         <segue reference="fhc-Yr-yct"/>
-        <segue reference="v3W-jP-ORm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

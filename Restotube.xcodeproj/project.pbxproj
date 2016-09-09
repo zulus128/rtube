@@ -115,6 +115,8 @@
 		7EA592561D36BA78007F438F /* iphone-restotube_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EA592531D36BA78007F438F /* iphone-restotube_1.jpg */; };
 		7EA592571D36BA78007F438F /* iphone-restotube_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EA592541D36BA78007F438F /* iphone-restotube_2.jpg */; };
 		7EA592581D36BA78007F438F /* iphone-restotube_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EA592551D36BA78007F438F /* iphone-restotube_3.jpg */; };
+		7EE5F3B01D82F7E60010BB76 /* map_restaurant_label_mid_pink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5F3AF1D82F7E60010BB76 /* map_restaurant_label_mid_pink@2x.png */; };
+		7EE5F3B21D82F8470010BB76 /* map_restaurant_label_pink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EE5F3B11D82F8470010BB76 /* map_restaurant_label_pink@2x.png */; };
 		850FE4AC1ADBD69700A3E2AC /* ReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850FE4AB1ADBD69700A3E2AC /* ReservationViewController.m */; };
 		850FF9601AE23ED000026962 /* RWLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 850FF95F1AE23ED000026962 /* RWLabel.m */; };
 		8522CE551ADD4E5E00A675B2 /* ReservationInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8522CE541ADD4E5E00A675B2 /* ReservationInfoViewController.m */; };
@@ -273,6 +275,8 @@
 		7EA592531D36BA78007F438F /* iphone-restotube_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iphone-restotube_1.jpg"; sourceTree = "<group>"; };
 		7EA592541D36BA78007F438F /* iphone-restotube_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iphone-restotube_2.jpg"; sourceTree = "<group>"; };
 		7EA592551D36BA78007F438F /* iphone-restotube_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iphone-restotube_3.jpg"; sourceTree = "<group>"; };
+		7EE5F3AF1D82F7E60010BB76 /* map_restaurant_label_mid_pink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_restaurant_label_mid_pink@2x.png"; sourceTree = "<group>"; };
+		7EE5F3B11D82F8470010BB76 /* map_restaurant_label_pink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_restaurant_label_pink@2x.png"; sourceTree = "<group>"; };
 		850FE4AA1ADBD69700A3E2AC /* ReservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationViewController.h; sourceTree = "<group>"; };
 		850FE4AB1ADBD69700A3E2AC /* ReservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationViewController.m; sourceTree = "<group>"; };
 		850FF95E1AE23ED000026962 /* RWLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWLabel.h; sourceTree = "<group>"; };
@@ -486,6 +490,8 @@
 			children = (
 				59A584441B9238450031F697 /* Intro screen */,
 				65D4F4571ADBD72700E326A6 /* map_restaurant_label_mid@2x.png */,
+				7EE5F3B11D82F8470010BB76 /* map_restaurant_label_pink@2x.png */,
+				7EE5F3AF1D82F7E60010BB76 /* map_restaurant_label_mid_pink@2x.png */,
 				65D4F4581ADBD72700E326A6 /* map_restaurant_label@2x.png */,
 				853F665D1AD63C4100B64B93 /* GalleryCollectionViewCell.h */,
 				853F66611AD63C4100B64B93 /* GalleryCollectionViewCell.m */,
@@ -757,6 +763,8 @@
 				7EA592581D36BA78007F438F /* iphone-restotube_3.jpg in Resources */,
 				6519F5E01ACA4C65004434A3 /* Images.xcassets in Resources */,
 				59A584461B9238720031F697 /* IntroView1.xib in Resources */,
+				7EE5F3B01D82F7E60010BB76 /* map_restaurant_label_mid_pink@2x.png in Resources */,
+				7EE5F3B21D82F8470010BB76 /* map_restaurant_label_pink@2x.png in Resources */,
 				596E4D2C1B923B0700C50B25 /* IntroView2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
