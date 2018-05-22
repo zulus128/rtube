@@ -1,7 +1,7 @@
 //
 // RSKImageCropViewController.h
 //
-// Copyright (c) 2014 Ruslan Skorb, http://ruslanskorb.com/
+// Copyright (c) 2014-present Ruslan Skorb, http://ruslanskorb.com/
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,6 +23,8 @@
 //
 
 #import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @protocol RSKImageCropViewControllerDataSource;
 @protocol RSKImageCropViewControllerDelegate;
@@ -62,14 +64,14 @@ typedef NS_ENUM(NSUInteger, RSKImageCropMode) {
  
  @discussion A `RSKImageCropViewControllerDelegate` delegate responds to messages sent by completing / canceling crop the image in the image crop view controller.
  */
-@property (weak, nonatomic) id<RSKImageCropViewControllerDelegate> delegate;
+@property (weak, nonatomic, nullable) id<RSKImageCropViewControllerDelegate> delegate;
 
 /**
  The receiver's data source.
  
- @discussion A `RSKImageCropViewControllerDataSource` data source provides a custom rect and a custom path for the mask.
+ @discussion A `RSKImageCropViewControllerDataSource` data source provides a custom rect and a custom path for the mask and a custom movement rect for the image.
  */
-@property (weak, nonatomic) id<RSKImageCropViewControllerDataSource> dataSource;
+@property (weak, nonatomic, nullable) id<RSKImageCropViewControllerDataSource> dataSource;
 
 ///--------------------------
 /// @name Accessing the Image
@@ -87,7 +89,17 @@ typedef NS_ENUM(NSUInteger, RSKImageCropMode) {
 /**
  The color of the layer with the mask. Default value is [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.7f].
  */
-@property (strong, nonatomic) UIColor *maskLayerColor;
+@property (copy, nonatomic) UIColor *maskLayerColor;
+
+/**
+ The line width used when stroking the path of the mask layer. Default value is 1.0.
+ */
+@property (assign, nonatomic) CGFloat maskLayerLineWidth;
+
+/**
+ The color to fill the stroked outline of the path of the mask layer, or nil for no stroking. Default valus is nil.
+ */
+@property (copy, nonatomic, nullable) UIColor *maskLayerStrokeColor;
 
 /**
  The rect of the mask.
@@ -101,7 +113,7 @@ typedef NS_ENUM(NSUInteger, RSKImageCropMode) {
  
  @discussion Updating each time before the crop view lays out its subviews.
  */
-@property (strong, readonly, nonatomic) UIBezierPath *maskPath;
+@property (copy, readonly, nonatomic) UIBezierPath *maskPath;
 
 /// -----------------------------------
 /// @name Accessing the Crop Attributes
@@ -137,6 +149,16 @@ typedef NS_ENUM(NSUInteger, RSKImageCropMode) {
  A Boolean value that determines whether the image will always fill the mask space. Default value is `NO`.
  */
 @property (assign, nonatomic) BOOL avoidEmptySpaceAroundImage;
+
+/**
+ A Boolean value that determines whether the image will always bounce horizontally. Default value is `NO`.
+ */
+@property (assign, nonatomic) BOOL alwaysBounceHorizontal;
+
+/**
+ A Boolean value that determines whether the image will always bounce vertically. Default value is `NO`.
+ */
+@property (assign, nonatomic) BOOL alwaysBounceVertical;
 
 /**
  A Boolean value that determines whether the mask applies to the image after cropping. Default value is `NO`.
@@ -180,10 +202,84 @@ typedef NS_ENUM(NSUInteger, RSKImageCropMode) {
  */
 - (BOOL)isPortraitInterfaceOrientation;
 
+/// -------------------------------------
+/// @name Accessing the Layout Attributes
+/// -------------------------------------
+
+/**
+ The inset of the circle mask rect's area within the crop view's area in portrait orientation. Default value is `15.0f`.
+ */
+@property (assign, nonatomic) CGFloat portraitCircleMaskRectInnerEdgeInset;
+
+/**
+ The inset of the square mask rect's area within the crop view's area in portrait orientation. Default value is `20.0f`.
+ */
+@property (assign, nonatomic) CGFloat portraitSquareMaskRectInnerEdgeInset;
+
+/**
+ The vertical space between the top of the 'Move and Scale' label and the top of the crop view in portrait orientation. Default value is `64.0f`.
+ */
+@property (assign, nonatomic) CGFloat portraitMoveAndScaleLabelTopAndCropViewTopVerticalSpace;
+
+/**
+ The vertical space between the bottom of the crop view and the bottom of the 'Cancel' button in portrait orientation. Default value is `21.0f`.
+ */
+@property (assign, nonatomic) CGFloat portraitCropViewBottomAndCancelButtonBottomVerticalSpace;
+
+/**
+ The vertical space between the bottom of the crop view and the bottom of the 'Choose' button in portrait orientation. Default value is `21.0f`.
+ */
+@property (assign, nonatomic) CGFloat portraitCropViewBottomAndChooseButtonBottomVerticalSpace;
+
+/**
+ The horizontal space between the leading of the 'Cancel' button and the leading of the crop view in portrait orientation. Default value is `13.0f`.
+ */
+@property (assign, nonatomic) CGFloat portraitCancelButtonLeadingAndCropViewLeadingHorizontalSpace;
+
+/**
+ The horizontal space between the trailing of the crop view and the trailing of the 'Choose' button in portrait orientation. Default value is `13.0f`.
+ */
+@property (assign, nonatomic) CGFloat portraitCropViewTrailingAndChooseButtonTrailingHorizontalSpace;
+
+/**
+ The inset of the circle mask rect's area within the crop view's area in landscape orientation. Default value is `45.0f`.
+ */
+@property (assign, nonatomic) CGFloat landscapeCircleMaskRectInnerEdgeInset;
+
+/**
+ The inset of the square mask rect's area within the crop view's area in landscape orientation. Default value is `45.0f`.
+ */
+@property (assign, nonatomic) CGFloat landscapeSquareMaskRectInnerEdgeInset;
+
+/**
+ The vertical space between the top of the 'Move and Scale' label and the top of the crop view in landscape orientation. Default value is `12.0f`.
+ */
+@property (assign, nonatomic) CGFloat landscapeMoveAndScaleLabelTopAndCropViewTopVerticalSpace;
+
+/**
+ The vertical space between the bottom of the crop view and the bottom of the 'Cancel' button in landscape orientation. Default value is `12.0f`.
+ */
+@property (assign, nonatomic) CGFloat landscapeCropViewBottomAndCancelButtonBottomVerticalSpace;
+
+/**
+ The vertical space between the bottom of the crop view and the bottom of the 'Choose' button in landscape orientation. Default value is `12.0f`.
+ */
+@property (assign, nonatomic) CGFloat landscapeCropViewBottomAndChooseButtonBottomVerticalSpace;
+
+/**
+ The horizontal space between the leading of the 'Cancel' button and the leading of the crop view in landscape orientation. Default value is `13.0f`.
+ */
+@property (assign, nonatomic) CGFloat landscapeCancelButtonLeadingAndCropViewLeadingHorizontalSpace;
+
+/**
+ The horizontal space between the trailing of the crop view and the trailing of the 'Choose' button in landscape orientation. Default value is `13.0f`.
+ */
+@property (assign, nonatomic) CGFloat landscapeCropViewTrailingAndChooseButtonTrailingHorizontalSpace;
+
 @end
 
 /**
- The `RSKImageCropViewControllerDataSource` protocol is adopted by an object that provides a custom rect and a custom path for the mask.
+ The `RSKImageCropViewControllerDataSource` protocol is adopted by an object that provides a custom rect and a custom path for the mask and a custom movement rect for the image.
  */
 @protocol RSKImageCropViewControllerDataSource <NSObject>
 
@@ -193,8 +289,6 @@ typedef NS_ENUM(NSUInteger, RSKImageCropMode) {
  @param controller The crop view controller object to whom a rect is provided.
  
  @return A custom rect for the mask.
- 
- @discussion Only valid if `cropMode` is `RSKImageCropModeCustom`.
  */
 - (CGRect)imageCropViewControllerCustomMaskRect:(RSKImageCropViewController *)controller;
 
@@ -204,12 +298,8 @@ typedef NS_ENUM(NSUInteger, RSKImageCropMode) {
  @param controller The crop view controller object to whom a path is provided.
  
  @return A custom path for the mask.
- 
- @discussion Only valid if `cropMode` is `RSKImageCropModeCustom`.
  */
 - (UIBezierPath *)imageCropViewControllerCustomMaskPath:(RSKImageCropViewController *)controller;
-
-@optional
 
 /**
  Asks the data source a custom rect in which the image can be moved.
@@ -217,8 +307,6 @@ typedef NS_ENUM(NSUInteger, RSKImageCropMode) {
  @param controller The crop view controller object to whom a rect is provided.
  
  @return A custom rect in which the image can be moved.
- 
- @discussion Only valid if `cropMode` is `RSKImageCropModeCustom`. If you want to support the rotation  when `cropMode` is `RSKImageCropModeCustom` you must implement it. Will be marked as `required` in version `2.0.0`.
  */
 - (CGRect)imageCropViewControllerCustomMovementRect:(RSKImageCropViewController *)controller;
 
@@ -229,26 +317,23 @@ typedef NS_ENUM(NSUInteger, RSKImageCropMode) {
  */
 @protocol RSKImageCropViewControllerDelegate <NSObject>
 
-@optional
-
 /**
  Tells the delegate that crop image has been canceled.
  */
 - (void)imageCropViewControllerDidCancelCrop:(RSKImageCropViewController *)controller;
 
 /**
- Tells the delegate that the original image will be cropped.
- */
-- (void)imageCropViewController:(RSKImageCropViewController *)controller willCropImage:(UIImage *)originalImage;
-
-/**
- Tells the delegate that the original image has been cropped. Additionally provides a crop rect used to produce image.
- */
-- (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage usingCropRect:(CGRect)cropRect;
-
-/**
  Tells the delegate that the original image has been cropped. Additionally provides a crop rect and a rotation angle used to produce image.
  */
 - (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage usingCropRect:(CGRect)cropRect rotationAngle:(CGFloat)rotationAngle;
 
+@optional
+
+/**
+ Tells the delegate that the original image will be cropped.
+ */
+- (void)imageCropViewController:(RSKImageCropViewController *)controller willCropImage:(UIImage *)originalImage;
+
 @end
+
+NS_ASSUME_NONNULL_END

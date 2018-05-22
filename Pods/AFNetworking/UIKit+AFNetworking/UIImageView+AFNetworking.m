@@ -1,5 +1,6 @@
 // UIImageView+AFNetworking.m
-// Copyright (c) 2011–2015 Alamofire Software Foundation (http://alamofire.org/)
+//
+// Copyright (c) 2013-2014 AFNetworking (http://afnetworking.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -125,7 +126,7 @@
                        failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error))failure
 {
     [self cancelImageRequestOperation];
-    
+
     UIImage *cachedImage = [[[self class] sharedImageCache] cachedImageForRequest:urlRequest];
     if (cachedImage) {
         if (success) {
@@ -139,11 +140,10 @@
         if (placeholderImage) {
             self.image = placeholderImage;
         }
-
+        
         __weak __typeof(self)weakSelf = self;
         self.af_imageRequestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
         self.af_imageRequestOperation.responseSerializer = self.imageResponseSerializer;
-        self.af_imageRequestOperation.securityPolicy.allowInvalidCertificates = YES;
         [self.af_imageRequestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             if ([[urlRequest URL] isEqual:[strongSelf.af_imageRequestOperation.request URL]]) {
@@ -163,7 +163,6 @@
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             if ([[urlRequest URL] isEqual:[strongSelf.af_imageRequestOperation.request URL]]) {
                 if (failure) {
-                    NSLog(@"=== %@", urlRequest);
                     failure(urlRequest, operation.response, error);
                 }
 

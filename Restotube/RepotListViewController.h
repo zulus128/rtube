@@ -10,7 +10,7 @@
 #import "Restaurants.h"
 #import "ReviewTableViewCell.h"
 #import "Reports.h"
-#import <MWPhotoBrowser.h>
+#import "MWPhotoBrowser.h"
 
 @interface RepotListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ReviewCellDelegate, MWPhotoBrowserDelegate>
 {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2548B23C25EDCFB628047116 /* Pods_Restotube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2194521D4A0C58D531FA0C0 /* Pods_Restotube.framework */; };
 		596E4D2C1B923B0700C50B25 /* IntroView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596E4D2B1B923B0700C50B25 /* IntroView2.xib */; };
 		596E4D2E1B923B1100C50B25 /* IntroView3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596E4D2D1B923B1100C50B25 /* IntroView3.xib */; };
 		596E4D311B923C5800C50B25 /* ViewFromXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 596E4D301B923C5800C50B25 /* ViewFromXib.m */; };
@@ -23,94 +24,53 @@
 		6519F5D81ACA4C65004434A3 /* Restotube.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6519F5D61ACA4C65004434A3 /* Restotube.xcdatamodeld */; };
 		6519F5DE1ACA4C65004434A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6519F5DC1ACA4C65004434A3 /* Main.storyboard */; };
 		6519F5E01ACA4C65004434A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6519F5DF1ACA4C65004434A3 /* Images.xcassets */; };
-		6519F5EF1ACA4C65004434A3 /* RestotubeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F5EE1ACA4C65004434A3 /* RestotubeTests.m */; };
 		6519F6011ACA6F6F004434A3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519F6001ACA6F6F004434A3 /* MainViewController.m */; };
 		6522717A1AD3EFB100487478 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652271791AD3EFB100487478 /* FilterViewController.m */; };
-		6522717B1AD3EFB100487478 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652271791AD3EFB100487478 /* FilterViewController.m */; };
 		6552F66E1AD28F130086AB38 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 6552F66D1AD28F130086AB38 /* Categories.m */; };
-		6552F66F1AD28F130086AB38 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 6552F66D1AD28F130086AB38 /* Categories.m */; };
 		6552F6731AD29FE50086AB38 /* CategoriesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6552F6721AD29FE50086AB38 /* CategoriesViewCell.m */; };
-		6552F6741AD29FE50086AB38 /* CategoriesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6552F6721AD29FE50086AB38 /* CategoriesViewCell.m */; };
 		6568713A1AD5553C0086333C /* RestaurantsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871391AD5553C0086333C /* RestaurantsDetailViewController.m */; };
-		6568713B1AD5553C0086333C /* RestaurantsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871391AD5553C0086333C /* RestaurantsDetailViewController.m */; };
 		656871471AD671A40086333C /* FilterButtonsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871461AD671A40086333C /* FilterButtonsViewCell.m */; };
-		656871481AD671A40086333C /* FilterButtonsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871461AD671A40086333C /* FilterButtonsViewCell.m */; };
 		6568714B1AD675670086333C /* FilterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568714A1AD675670086333C /* FilterViewCell.m */; };
-		6568714C1AD675670086333C /* FilterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568714A1AD675670086333C /* FilterViewCell.m */; };
 		656871501AD693610086333C /* FilterTypesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568714F1AD693610086333C /* FilterTypesViewController.m */; };
-		656871511AD693610086333C /* FilterTypesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568714F1AD693610086333C /* FilterTypesViewController.m */; };
 		656871571AD6ABE00086333C /* Types.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871561AD6ABE00086333C /* Types.m */; };
-		656871581AD6ABE00086333C /* Types.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871561AD6ABE00086333C /* Types.m */; };
 		6568715B1AD6ADAB0086333C /* Cuisines.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568715A1AD6ADAB0086333C /* Cuisines.m */; };
-		6568715C1AD6ADAB0086333C /* Cuisines.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568715A1AD6ADAB0086333C /* Cuisines.m */; };
 		6568715F1AD6ADB50086333C /* Features.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568715E1AD6ADB50086333C /* Features.m */; };
-		656871601AD6ADB50086333C /* Features.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568715E1AD6ADB50086333C /* Features.m */; };
 		656871631AD6ADBE0086333C /* Averages.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871621AD6ADBE0086333C /* Averages.m */; };
-		656871641AD6ADBE0086333C /* Averages.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871621AD6ADBE0086333C /* Averages.m */; };
 		656871671AD6ADC90086333C /* Metro.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871661AD6ADC90086333C /* Metro.m */; };
-		656871681AD6ADC90086333C /* Metro.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871661AD6ADC90086333C /* Metro.m */; };
 		6568716B1AD6AEB00086333C /* TypesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568716A1AD6AEB00086333C /* TypesViewCell.m */; };
-		6568716C1AD6AEB00086333C /* TypesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568716A1AD6AEB00086333C /* TypesViewCell.m */; };
 		6568716F1AD6B49A0086333C /* CuisinesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568716E1AD6B49A0086333C /* CuisinesViewCell.m */; };
-		656871701AD6B49A0086333C /* CuisinesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568716E1AD6B49A0086333C /* CuisinesViewCell.m */; };
 		656871731AD6B4B20086333C /* AveragesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871721AD6B4B20086333C /* AveragesViewCell.m */; };
-		656871741AD6B4B20086333C /* AveragesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871721AD6B4B20086333C /* AveragesViewCell.m */; };
 		656871771AD6B7F70086333C /* FilterCuisinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871761AD6B7F70086333C /* FilterCuisinesViewController.m */; };
-		656871781AD6B7F70086333C /* FilterCuisinesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871761AD6B7F70086333C /* FilterCuisinesViewController.m */; };
 		6568717B1AD6B8D20086333C /* FilterAveragesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568717A1AD6B8D20086333C /* FilterAveragesViewController.m */; };
-		6568717C1AD6B8D20086333C /* FilterAveragesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568717A1AD6B8D20086333C /* FilterAveragesViewController.m */; };
 		6568717F1AD6B9530086333C /* FilterMetroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568717E1AD6B9530086333C /* FilterMetroViewController.m */; };
-		656871801AD6B9530086333C /* FilterMetroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568717E1AD6B9530086333C /* FilterMetroViewController.m */; };
 		656871831AD6B96D0086333C /* MetroViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871821AD6B96D0086333C /* MetroViewCell.m */; };
-		656871841AD6B96D0086333C /* MetroViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 656871821AD6B96D0086333C /* MetroViewCell.m */; };
 		65AA54CD1ADFA6690002297F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AA54CC1ADFA6690002297F /* SearchViewController.m */; };
-		65AA54CE1ADFA6690002297F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AA54CC1ADFA6690002297F /* SearchViewController.m */; };
 		65AA54D11ADFA6810002297F /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AA54D01ADFA6810002297F /* SearchTableViewCell.m */; };
-		65AA54D21ADFA6810002297F /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AA54D01ADFA6810002297F /* SearchTableViewCell.m */; };
 		65B41BE31ADE70E000EDEDBE /* ReservationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B41BE21ADE70E000EDEDBE /* ReservationsViewController.m */; };
-		65B41BE41ADE70E000EDEDBE /* ReservationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B41BE21ADE70E000EDEDBE /* ReservationsViewController.m */; };
 		65B41BE71ADE745E00EDEDBE /* ReservationsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B41BE61ADE745E00EDEDBE /* ReservationsViewCell.m */; };
-		65B41BE81ADE745E00EDEDBE /* ReservationsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B41BE61ADE745E00EDEDBE /* ReservationsViewCell.m */; };
 		65B41BEF1ADE825E00EDEDBE /* BookList.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B41BEE1ADE825E00EDEDBE /* BookList.m */; };
-		65B41BF01ADE825E00EDEDBE /* BookList.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B41BEE1ADE825E00EDEDBE /* BookList.m */; };
 		65B8CA4C1ACF58C300461988 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B8CA4B1ACF58C300461988 /* LeftMenuViewController.m */; };
 		65B8CA501ACF5AA800461988 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B8CA4F1ACF5AA800461988 /* CategoriesViewController.m */; };
 		65B8CA5B1ACF756B00461988 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B8CA5A1ACF756B00461988 /* RequestManager.m */; };
 		65C5A79B1AD4F19500D636A1 /* RestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C5A79A1AD4F19500D636A1 /* RestaurantsViewController.m */; };
-		65C5A79C1AD4F19500D636A1 /* RestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C5A79A1AD4F19500D636A1 /* RestaurantsViewController.m */; };
 		65C5A79F1AD4F1BF00D636A1 /* Restaurants.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C5A79E1AD4F1BF00D636A1 /* Restaurants.m */; };
-		65C5A7A01AD4F1BF00D636A1 /* Restaurants.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C5A79E1AD4F1BF00D636A1 /* Restaurants.m */; };
 		65C5A7A31AD4F1DE00D636A1 /* RestaurantsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C5A7A21AD4F1DE00D636A1 /* RestaurantsViewCell.m */; };
-		65C5A7A41AD4F1DE00D636A1 /* RestaurantsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C5A7A21AD4F1DE00D636A1 /* RestaurantsViewCell.m */; };
 		65C5A7A91AD5378300D636A1 /* Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C5A7A81AD5378300D636A1 /* Filters.m */; };
-		65C5A7AA1AD5378300D636A1 /* Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C5A7A81AD5378300D636A1 /* Filters.m */; };
 		65D4F4351ADB345800E326A6 /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F4341ADB345800E326A6 /* MapsViewController.m */; };
-		65D4F4361ADB345800E326A6 /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F4341ADB345800E326A6 /* MapsViewController.m */; };
 		65D4F43B1ADB34F200E326A6 /* MapsInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F43A1ADB34F200E326A6 /* MapsInstance.m */; };
-		65D4F43C1ADB34F200E326A6 /* MapsInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F43A1ADB34F200E326A6 /* MapsInstance.m */; };
 		65D4F43E1ADB373F00E326A6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D4F43D1ADB373F00E326A6 /* CoreLocation.framework */; };
 		65D4F4421ADB645E00E326A6 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F4411ADB645E00E326A6 /* Profile.m */; };
-		65D4F4431ADB645E00E326A6 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F4411ADB645E00E326A6 /* Profile.m */; };
 		65D4F4461ADB6E5100E326A6 /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F4451ADB6E5100E326A6 /* AuthViewController.m */; };
-		65D4F4471ADB6E5100E326A6 /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F4451ADB6E5100E326A6 /* AuthViewController.m */; };
 		65D4F4491ADB981600E326A6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D4F4481ADB981600E326A6 /* QuartzCore.framework */; };
 		65D4F44C1ADB9E1D00E326A6 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F44B1ADB9E1D00E326A6 /* RegisterViewController.m */; };
-		65D4F44D1ADB9E1D00E326A6 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F44B1ADB9E1D00E326A6 /* RegisterViewController.m */; };
 		65D4F4501ADBAC5B00E326A6 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F44F1ADBAC5B00E326A6 /* ProfileView.m */; };
-		65D4F4511ADBAC5B00E326A6 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F44F1ADBAC5B00E326A6 /* ProfileView.m */; };
 		65D4F4551ADBD6F000E326A6 /* UIImage+MapsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F4541ADBD6F000E326A6 /* UIImage+MapsView.m */; };
-		65D4F4561ADBD6F000E326A6 /* UIImage+MapsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F4541ADBD6F000E326A6 /* UIImage+MapsView.m */; };
 		65D4F4591ADBD72700E326A6 /* map_restaurant_label_mid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65D4F4571ADBD72700E326A6 /* map_restaurant_label_mid@2x.png */; };
-		65D4F45A1ADBD72700E326A6 /* map_restaurant_label_mid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65D4F4571ADBD72700E326A6 /* map_restaurant_label_mid@2x.png */; };
 		65D4F45B1ADBD72700E326A6 /* map_restaurant_label@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65D4F4581ADBD72700E326A6 /* map_restaurant_label@2x.png */; };
-		65D4F45C1ADBD72700E326A6 /* map_restaurant_label@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65D4F4581ADBD72700E326A6 /* map_restaurant_label@2x.png */; };
 		65D4F45F1ADBD74B00E326A6 /* UIMapsMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F45E1ADBD74B00E326A6 /* UIMapsMarker.m */; };
-		65D4F4601ADBD74B00E326A6 /* UIMapsMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F45E1ADBD74B00E326A6 /* UIMapsMarker.m */; };
 		65D4F4661ADBFDD500E326A6 /* JSImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F4651ADBFDD500E326A6 /* JSImagePickerViewController.m */; };
-		65D4F4671ADBFDD500E326A6 /* JSImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4F4651ADBFDD500E326A6 /* JSImagePickerViewController.m */; };
 		65D4F4691ADBFDE800E326A6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D4F4681ADBFDE800E326A6 /* MobileCoreServices.framework */; };
 		65FFCA801ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FFCA7F1ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.m */; };
-		65FFCA811ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FFCA7F1ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.m */; };
 		7E2853851D2FA0CF000E93E6 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2853841D2FA0CF000E93E6 /* AboutController.m */; };
 		7EA592561D36BA78007F438F /* iphone-restotube_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EA592531D36BA78007F438F /* iphone-restotube_1.jpg */; };
 		7EA592571D36BA78007F438F /* iphone-restotube_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EA592541D36BA78007F438F /* iphone-restotube_2.jpg */; };
@@ -132,24 +92,14 @@
 		93DB96AF1B99AE7B00C46422 /* Balance.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DB96AE1B99AE7B00C46422 /* Balance.m */; };
 		93DFF3851BA840A6002E3113 /* ReplenishNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DFF3841BA840A6002E3113 /* ReplenishNavigationController.m */; };
 		93E0A14A1BA191B7008A0EEF /* ReplenishBalanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E0A1491BA191B7008A0EEF /* ReplenishBalanceViewController.m */; };
-		B38677EE07DB49F4687BBD9E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3150DE45AB9DA8CA0016308E /* libPods.a */; };
 		CE7D3B551B6F5DD400383EC4 /* NearMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7D3B541B6F5DD400383EC4 /* NearMeViewController.m */; };
 		CE7D3B591B6FA76D00383EC4 /* ParseMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7D3B581B6FA76D00383EC4 /* ParseMethods.m */; };
 		CE8779A01B57D9E00040899C /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE87799F1B57D9E00040899C /* IAPHelper.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		6519F5E91ACA4C65004434A3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6519F5C41ACA4C65004434A3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6519F5CB1ACA4C65004434A3;
-			remoteInfo = Restotube;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		3150DE45AB9DA8CA0016308E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BB22C7647C6C41B1D560062 /* Pods-Restotube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restotube.release.xcconfig"; path = "Pods/Target Support Files/Pods-Restotube/Pods-Restotube.release.xcconfig"; sourceTree = "<group>"; };
 		596E4D2B1B923B0700C50B25 /* IntroView2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroView2.xib; sourceTree = "<group>"; };
 		596E4D2D1B923B1100C50B25 /* IntroView3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroView3.xib; sourceTree = "<group>"; };
 		596E4D2F1B923C5800C50B25 /* ViewFromXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFromXib.h; sourceTree = "<group>"; };
@@ -177,7 +127,6 @@
 		6519F5D71ACA4C65004434A3 /* Restotube.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Restotube.xcdatamodel; sourceTree = "<group>"; };
 		6519F5DD1ACA4C65004434A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6519F5DF1ACA4C65004434A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6519F5E81ACA4C65004434A3 /* RestotubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestotubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6519F5ED1ACA4C65004434A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6519F5EE1ACA4C65004434A3 /* RestotubeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestotubeTests.m; sourceTree = "<group>"; };
 		6519F5FF1ACA6F6F004434A3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -269,9 +218,9 @@
 		65D4F4681ADBFDE800E326A6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		65FFCA7E1ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+CustomBackGround.h"; sourceTree = "<group>"; };
 		65FFCA7F1ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+CustomBackGround.m"; sourceTree = "<group>"; };
+		787876A2E3242DCFEAE9E6C3 /* Pods-Restotube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restotube.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Restotube/Pods-Restotube.debug.xcconfig"; sourceTree = "<group>"; };
 		7E2853831D2FA0CE000E93E6 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		7E2853841D2FA0CF000E93E6 /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
-		7E69543E3DF815669084AACD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7EA592531D36BA78007F438F /* iphone-restotube_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iphone-restotube_1.jpg"; sourceTree = "<group>"; };
 		7EA592541D36BA78007F438F /* iphone-restotube_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iphone-restotube_2.jpg"; sourceTree = "<group>"; };
 		7EA592551D36BA78007F438F /* iphone-restotube_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iphone-restotube_3.jpg"; sourceTree = "<group>"; };
@@ -307,13 +256,13 @@
 		93DFF3841BA840A6002E3113 /* ReplenishNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplenishNavigationController.m; sourceTree = "<group>"; };
 		93E0A1481BA191B7008A0EEF /* ReplenishBalanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplenishBalanceViewController.h; sourceTree = "<group>"; };
 		93E0A1491BA191B7008A0EEF /* ReplenishBalanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplenishBalanceViewController.m; sourceTree = "<group>"; };
+		B2194521D4A0C58D531FA0C0 /* Pods_Restotube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Restotube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7D3B531B6F5DD400383EC4 /* NearMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearMeViewController.h; sourceTree = "<group>"; };
 		CE7D3B541B6F5DD400383EC4 /* NearMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearMeViewController.m; sourceTree = "<group>"; };
 		CE7D3B571B6FA76D00383EC4 /* ParseMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseMethods.h; sourceTree = "<group>"; };
 		CE7D3B581B6FA76D00383EC4 /* ParseMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseMethods.m; sourceTree = "<group>"; };
 		CE87799E1B57D9E00040899C /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		CE87799F1B57D9E00040899C /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
-		D5B692A2476A87575048669F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,14 +273,7 @@
 				65D4F4691ADBFDE800E326A6 /* MobileCoreServices.framework in Frameworks */,
 				65D4F4491ADB981600E326A6 /* QuartzCore.framework in Frameworks */,
 				65D4F43E1ADB373F00E326A6 /* CoreLocation.framework in Frameworks */,
-				B38677EE07DB49F4687BBD9E /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6519F5E51ACA4C65004434A3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				2548B23C25EDCFB628047116 /* Pods_Restotube.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				6519F5CC1ACA4C65004434A3 /* Restotube.app */,
-				6519F5E81ACA4C65004434A3 /* RestotubeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -640,6 +581,7 @@
 				65D4F4481ADB981600E326A6 /* QuartzCore.framework */,
 				65D4F43D1ADB373F00E326A6 /* CoreLocation.framework */,
 				3150DE45AB9DA8CA0016308E /* libPods.a */,
+				B2194521D4A0C58D531FA0C0 /* Pods_Restotube.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -647,8 +589,8 @@
 		9DD676E186EB4F4D42A579FA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D5B692A2476A87575048669F /* Pods.debug.xcconfig */,
-				7E69543E3DF815669084AACD /* Pods.release.xcconfig */,
+				787876A2E3242DCFEAE9E6C3 /* Pods-Restotube.debug.xcconfig */,
+				4BB22C7647C6C41B1D560062 /* Pods-Restotube.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -676,13 +618,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6519F5F21ACA4C65004434A3 /* Build configuration list for PBXNativeTarget "Restotube" */;
 			buildPhases = (
+				EC1EDBF83DE4F73778C0E900 /* [CP] Check Pods Manifest.lock */,
 				06FF9A76830B57B1A7CBF0FD /* Check Pods Manifest.lock */,
 				6519F5C81ACA4C65004434A3 /* Sources */,
 				6519F5C91ACA4C65004434A3 /* Frameworks */,
 				6519F5CA1ACA4C65004434A3 /* Resources */,
-				09B3377D180ECC05991187AC /* Copy Pods Resources */,
-				560B8B2F57BAE56496AB3147 /* Embed Pods Frameworks */,
 				7E69D63A1CC0D44D006D885D /* ShellScript */,
+				E486535B16B65DF61F00D319 /* [CP] Embed Pods Frameworks */,
+				14F2F280C21E077ABAE7875E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -692,24 +635,6 @@
 			productName = Restotube;
 			productReference = 6519F5CC1ACA4C65004434A3 /* Restotube.app */;
 			productType = "com.apple.product-type.application";
-		};
-		6519F5E71ACA4C65004434A3 /* RestotubeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6519F5F51ACA4C65004434A3 /* Build configuration list for PBXNativeTarget "RestotubeTests" */;
-			buildPhases = (
-				6519F5E41ACA4C65004434A3 /* Sources */,
-				6519F5E51ACA4C65004434A3 /* Frameworks */,
-				6519F5E61ACA4C65004434A3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6519F5EA1ACA4C65004434A3 /* PBXTargetDependency */,
-			);
-			name = RestotubeTests;
-			productName = RestotubeTests;
-			productReference = 6519F5E81ACA4C65004434A3 /* RestotubeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -722,11 +647,8 @@
 				TargetAttributes = {
 					6519F5CB1ACA4C65004434A3 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 2HJM435358;
-					};
-					6519F5E71ACA4C65004434A3 = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = 6519F5CB1ACA4C65004434A3;
+						DevelopmentTeam = 7TTF49AXF6;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -744,7 +666,6 @@
 			projectRoot = "";
 			targets = (
 				6519F5CB1ACA4C65004434A3 /* Restotube */,
-				6519F5E71ACA4C65004434A3 /* RestotubeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -769,15 +690,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6519F5E61ACA4C65004434A3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				65D4F45A1ADBD72700E326A6 /* map_restaurant_label_mid@2x.png in Resources */,
-				65D4F45C1ADBD72700E326A6 /* map_restaurant_label@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -796,34 +708,22 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		09B3377D180ECC05991187AC /* Copy Pods Resources */ = {
+		14F2F280C21E077ABAE7875E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Restotube/Pods-Restotube-resources.sh",
+				"${PODS_ROOT}/Google-Maps-iOS-SDK/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		560B8B2F57BAE56496AB3147 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Restotube/Pods-Restotube-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7E69D63A1CC0D44D006D885D /* ShellScript */ = {
@@ -838,6 +738,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 61b97f836813051adca5ca79f27795ff58da96c5 cb21e610491f28b17202b44e90ce49c8b896a6a18bfa739a6f1d93aedfae1078";
+		};
+		E486535B16B65DF61F00D319 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Restotube/Pods-Restotube-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
+				"${BUILT_PRODUCTS_DIR}/RESideMenu/RESideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SHSPhoneComponent/SHSPhoneComponent.framework",
+				"${BUILT_PRODUCTS_DIR}/SVPullToRefresh/SVPullToRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RESideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHSPhoneComponent.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVPullToRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Restotube/Pods-Restotube-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC1EDBF83DE4F73778C0E900 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Restotube-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -921,61 +875,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6519F5E41ACA4C65004434A3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6568714C1AD675670086333C /* FilterViewCell.m in Sources */,
-				6519F5EF1ACA4C65004434A3 /* RestotubeTests.m in Sources */,
-				6568717C1AD6B8D20086333C /* FilterAveragesViewController.m in Sources */,
-				65D4F4361ADB345800E326A6 /* MapsViewController.m in Sources */,
-				6568716C1AD6AEB00086333C /* TypesViewCell.m in Sources */,
-				656871841AD6B96D0086333C /* MetroViewCell.m in Sources */,
-				6552F66F1AD28F130086AB38 /* Categories.m in Sources */,
-				65D4F4671ADBFDD500E326A6 /* JSImagePickerViewController.m in Sources */,
-				656871641AD6ADBE0086333C /* Averages.m in Sources */,
-				65D4F4471ADB6E5100E326A6 /* AuthViewController.m in Sources */,
-				656871481AD671A40086333C /* FilterButtonsViewCell.m in Sources */,
-				65B41BE41ADE70E000EDEDBE /* ReservationsViewController.m in Sources */,
-				65FFCA811ADFCB9E000E44B1 /* UISearchBar+CustomBackGround.m in Sources */,
-				65D4F4511ADBAC5B00E326A6 /* ProfileView.m in Sources */,
-				65C5A7A01AD4F1BF00D636A1 /* Restaurants.m in Sources */,
-				65AA54CE1ADFA6690002297F /* SearchViewController.m in Sources */,
-				65D4F44D1ADB9E1D00E326A6 /* RegisterViewController.m in Sources */,
-				6522717B1AD3EFB100487478 /* FilterViewController.m in Sources */,
-				6568715C1AD6ADAB0086333C /* Cuisines.m in Sources */,
-				65D4F4431ADB645E00E326A6 /* Profile.m in Sources */,
-				6568713B1AD5553C0086333C /* RestaurantsDetailViewController.m in Sources */,
-				65C5A7A41AD4F1DE00D636A1 /* RestaurantsViewCell.m in Sources */,
-				65B41BF01ADE825E00EDEDBE /* BookList.m in Sources */,
-				656871581AD6ABE00086333C /* Types.m in Sources */,
-				65B41BE81ADE745E00EDEDBE /* ReservationsViewCell.m in Sources */,
-				656871511AD693610086333C /* FilterTypesViewController.m in Sources */,
-				65C5A7AA1AD5378300D636A1 /* Filters.m in Sources */,
-				65D4F4561ADBD6F000E326A6 /* UIImage+MapsView.m in Sources */,
-				656871801AD6B9530086333C /* FilterMetroViewController.m in Sources */,
-				656871681AD6ADC90086333C /* Metro.m in Sources */,
-				65AA54D21ADFA6810002297F /* SearchTableViewCell.m in Sources */,
-				656871781AD6B7F70086333C /* FilterCuisinesViewController.m in Sources */,
-				656871601AD6ADB50086333C /* Features.m in Sources */,
-				65D4F4601ADBD74B00E326A6 /* UIMapsMarker.m in Sources */,
-				65C5A79C1AD4F19500D636A1 /* RestaurantsViewController.m in Sources */,
-				6552F6741AD29FE50086AB38 /* CategoriesViewCell.m in Sources */,
-				656871741AD6B4B20086333C /* AveragesViewCell.m in Sources */,
-				656871701AD6B49A0086333C /* CuisinesViewCell.m in Sources */,
-				65D4F43C1ADB34F200E326A6 /* MapsInstance.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6519F5EA1ACA4C65004434A3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6519F5CB1ACA4C65004434A3 /* Restotube */;
-			targetProxy = 6519F5E91ACA4C65004434A3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6519F5DC1ACA4C65004434A3 /* Main.storyboard */ = {
@@ -1067,73 +967,43 @@
 		};
 		6519F5F31ACA4C65004434A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5B692A2476A87575048669F /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 787876A2E3242DCFEAE9E6C3 /* Pods-Restotube.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Elena Chemeris (2HJM435358)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Elena Chemeris (2HJM435358)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7TTF49AXF6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Restotube/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.resto.tube;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.resto.tube1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6afd4f1a-3f56-4600-85e2-74b8b533f009";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		6519F5F41ACA4C65004434A3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E69543E3DF815669084AACD /* Pods.release.xcconfig */;
+			baseConfigurationReference = 4BB22C7647C6C41B1D560062 /* Pods-Restotube.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Elena Chemeris (2HJM435358)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Elena Chemeris (2HJM435358)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7TTF49AXF6;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Restotube/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.resto.tube;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.resto.tube1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6afd4f1a-3f56-4600-85e2-74b8b533f009";
-			};
-			name = Release;
-		};
-		6519F5F61ACA4C65004434A3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5B692A2476A87575048669F /* Pods.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = RestotubeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Restotube.app/Restotube";
-			};
-			name = Debug;
-		};
-		6519F5F71ACA4C65004434A3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E69543E3DF815669084AACD /* Pods.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = RestotubeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Restotube.app/Restotube";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -1154,15 +1024,6 @@
 			buildConfigurations = (
 				6519F5F31ACA4C65004434A3 /* Debug */,
 				6519F5F41ACA4C65004434A3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6519F5F51ACA4C65004434A3 /* Build configuration list for PBXNativeTarget "RestotubeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6519F5F61ACA4C65004434A3 /* Debug */,
-				6519F5F71ACA4C65004434A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

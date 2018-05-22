@@ -26,7 +26,7 @@
 #import "RESideMenu.h"
 #import "UIViewController+RESideMenu.h"
 #import "RECommonFunctions.h"
-#define DEG2RAD(degrees) (degrees * M_PI / 180)
+
 @interface RESideMenu ()
 
 @property (strong, readwrite, nonatomic) UIImageView *backgroundImageView;
@@ -268,7 +268,6 @@
     }
 }
 
-
 - (void)showLeftMenuViewController
 {
     if (!self.leftMenuViewController) {
@@ -281,44 +280,24 @@
     [self updateContentViewShadow];
     [self resetContentViewScale];
     
-    
-    // Animation settings for content view
-    CATransform3D contentTransform = CATransform3DIdentity;
-    contentTransform.m34 = -1.0f / 800.0f;
-    self.contentViewContainer.layer.zPosition = 100;
-    
-    // Animation settings for menu view
-    CATransform3D sidebarTransform = CATransform3DIdentity;
-    sidebarTransform = CATransform3DScale(sidebarTransform, 1.7, 1.7, 1.7);
-//    self.contentViewContainer.layer.transform = sidebarTransform;
-    
-    sidebarTransform = CATransform3DIdentity;
-    sidebarTransform = CATransform3DScale(sidebarTransform, 1.0, 1.0, 1.0);
-    
-    contentTransform = CATransform3DTranslate(contentTransform, 200 - (self.contentViewContainer.frame.size.width / 2 * 0.4), 0.0, 0.0);
-    contentTransform = CATransform3DScale(contentTransform, 0.8, 0.8, 0.8);
-    contentTransform = CATransform3DRotate(contentTransform, DEG2RAD(-45), 0.0, 1.0, 0.0);
-    
-    
     [UIView animateWithDuration:self.animationDuration animations:^{
         if (self.scaleContentView) {
-            self.contentViewContainer.layer.transform = contentTransform;
-//            self.contentViewContainer.transform = CGAffineTransformMakeScale(self.contentViewScaleValue, self.contentViewScaleValue);
+            self.contentViewContainer.transform = CGAffineTransformMakeScale(self.contentViewScaleValue, self.contentViewScaleValue);
         } else {
             self.contentViewContainer.transform = CGAffineTransformIdentity;
         }
         
-//        if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
-//            self.contentViewContainer.center = CGPointMake((UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ? self.contentViewInLandscapeOffsetCenterX + CGRectGetWidth(self.view.frame) : self.contentViewInPortraitOffsetCenterX + CGRectGetWidth(self.view.frame)), self.contentViewContainer.center.y);
-//        } else {
-//            self.contentViewContainer.center = CGPointMake((UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ? self.contentViewInLandscapeOffsetCenterX + CGRectGetHeight(self.view.frame) : self.contentViewInPortraitOffsetCenterX + CGRectGetWidth(self.view.frame)), self.contentViewContainer.center.y);
-//        }
-//
+        if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
+            self.contentViewContainer.center = CGPointMake((UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ? self.contentViewInLandscapeOffsetCenterX + CGRectGetWidth(self.view.frame) : self.contentViewInPortraitOffsetCenterX + CGRectGetWidth(self.view.frame)), self.contentViewContainer.center.y);
+        } else {
+            self.contentViewContainer.center = CGPointMake((UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) ? self.contentViewInLandscapeOffsetCenterX + CGRectGetHeight(self.view.frame) : self.contentViewInPortraitOffsetCenterX + CGRectGetWidth(self.view.frame)), self.contentViewContainer.center.y);
+        }
+
         self.menuViewContainer.alpha = !self.fadeMenuView ?: 1.0f;
         self.menuViewContainer.transform = CGAffineTransformIdentity;
         if (self.scaleBackgroundImageView)
             self.backgroundImageView.transform = CGAffineTransformIdentity;
-        
+            
     } completion:^(BOOL finished) {
         [self addContentViewControllerMotionEffects];
         

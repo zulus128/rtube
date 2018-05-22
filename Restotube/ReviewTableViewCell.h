@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <TTTAttributedLabel.h>
+#import "TTTAttributedLabel.h"
 #import "Reports.h"
 #import "RWLabel.h"
 

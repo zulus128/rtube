@@ -53,7 +53,7 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>restotube.temp</key>
+			<key>restotube.ru</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>

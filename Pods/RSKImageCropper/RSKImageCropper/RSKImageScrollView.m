@@ -86,6 +86,21 @@
     [self centerZoomView];
 }
 
+- (void)setAspectFill:(BOOL)aspectFill
+{
+    if (_aspectFill != aspectFill) {
+        _aspectFill = aspectFill;
+        
+        if (_zoomView) {
+            [self setMaxMinZoomScalesForCurrentBounds];
+            
+            if (self.zoomScale < self.minimumZoomScale) {
+                self.zoomScale = self.minimumZoomScale;
+            }
+        }
+    }
+}
+
 - (void)setFrame:(CGRect)frame
 {
     BOOL sizeChanging = !CGSizeEqualToSize(frame.size, self.frame.size);
@@ -193,22 +208,25 @@
     // calculate min/max zoomscale
     CGFloat xScale = boundsSize.width  / _imageSize.width;    // the scale needed to perfectly fit the image width-wise
     CGFloat yScale = boundsSize.height / _imageSize.height;   // the scale needed to perfectly fit the image height-wise
+    
     CGFloat minScale;
     if (!self.aspectFill) {
         minScale = MIN(xScale, yScale); // use minimum of these to allow the image to become fully visible
     } else {
         minScale = MAX(xScale, yScale); // use maximum of these to allow the image to fill the screen
     }
+    
     CGFloat maxScale = MAX(xScale, yScale);
     
     // Image must fit/fill the screen, even if its size is smaller.
     CGFloat xImageScale = maxScale*_imageSize.width / boundsSize.width;
-    CGFloat yImageScale = maxScale*_imageSize.height / boundsSize.width;
+    CGFloat yImageScale = maxScale*_imageSize.height / boundsSize.height;
+    
     CGFloat maxImageScale = MAX(xImageScale, yImageScale);
     
     maxImageScale = MAX(minScale, maxImageScale);
     maxScale = MAX(maxScale, maxImageScale);
-
+    
     // don't let minScale exceed maxScale. (If the image is smaller than the screen, we don't want to force it to be zoomed.)
     if (minScale > maxScale) {
         minScale = maxScale;
@@ -254,6 +272,10 @@
 
 - (void)prepareToResize
 {
+    if (_zoomView == nil) {
+        return;
+    }
+    
     CGPoint boundsCenter = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
     _pointToCenterAfterResize = [self convertPoint:boundsCenter toView:self.zoomView];
 
@@ -267,6 +289,10 @@
 
 - (void)recoverFromResizing
 {
+    if (_zoomView == nil) {
+        return;
+    }
+    
     [self setMaxMinZoomScalesForCurrentBounds];
     
     // Step 1: restore zoom scale, first making sure it is within the allowable range.

@@ -1,72 +1,88 @@
 PODS:
-  - AFNetworking (2.5.4):
-    - AFNetworking/NSURLConnection (= 2.5.4)
-    - AFNetworking/NSURLSession (= 2.5.4)
-    - AFNetworking/Reachability (= 2.5.4)
-    - AFNetworking/Security (= 2.5.4)
-    - AFNetworking/Serialization (= 2.5.4)
-    - AFNetworking/UIKit (= 2.5.4)
-  - AFNetworking/NSURLConnection (2.5.4):
+  - AFNetworking (2.5.0):
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
+  - AFNetworking/NSURLConnection (2.5.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.4):
+  - AFNetworking/NSURLSession (2.5.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.4)
-  - AFNetworking/Security (2.5.4)
-  - AFNetworking/Serialization (2.5.4)
-  - AFNetworking/UIKit (2.5.4):
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Crashlytics (3.7.0):
-    - Fabric (~> 1.6.3)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
   - DACircularProgress (2.3.1)
-  - Fabric (1.6.7)
+  - Fabric (1.7.6)
   - Google-Maps-iOS-SDK (1.9.2)
-  - MBProgressHUD (0.9.1)
-  - MWPhotoBrowser (1.4.1):
-    - DACircularProgress
-    - MBProgressHUD (~> 0.8)
-    - PSTCollectionView (~> 1.2)
-    - SDWebImage (~> 3.7)
-  - PSTCollectionView (1.2.3)
+  - MBProgressHUD (0.9.2)
+  - MWPhotoBrowser (2.1.2):
+    - DACircularProgress (~> 2.3)
+    - MBProgressHUD (~> 0.9)
+    - "SDWebImage (!= 3.7.2, ~> 3.7)"
   - RESideMenu (4.0.7)
-  - RSKImageCropper (1.1.3)
-  - SDWebImage (3.7.2):
-    - SDWebImage/Core (= 3.7.2)
-  - SDWebImage/Core (3.7.2)
-  - SHSPhoneComponent (2.15)
+  - RSKImageCropper (2.0.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - SHSPhoneComponent (2.31)
   - SVPullToRefresh (0.4.1)
-  - TTTAttributedLabel (1.13.3)
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.0)
+  - AFNetworking (= 2.5)
   - Crashlytics
   - Fabric
   - Google-Maps-iOS-SDK
   - MWPhotoBrowser
   - RESideMenu (~> 4.0.7)
   - RSKImageCropper
+  - SDWebImage
   - SHSPhoneComponent
   - SVPullToRefresh
   - TTTAttributedLabel
 
-SPEC CHECKSUMS:
-  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  Crashlytics: c3a2333dea9e2733d2777f730910321fc9e25c0d
-  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  Google-Maps-iOS-SDK: 7f89cc1edb3ca239a410e5bc83cd1e060db3a289
-  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MWPhotoBrowser: 2531e682860d62b8a7ba8659de02eb9040e431e5
-  PSTCollectionView: 6749df92885353521f55279a7ce2b293762e2be4
-  RESideMenu: f24c508404b49c667344c54aba7e590883533958
-  RSKImageCropper: 283bb4f39ced96cc9023ad3b7bc7bc68755845bb
-  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
-  SHSPhoneComponent: 4cec0653a150ad63cbc52b0c8b29ce2d3c9c26f0
-  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
-  TTTAttributedLabel: 6f3174aef8e738f44dff97c2eb7d8184f6ab6277
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - Crashlytics
+    - DACircularProgress
+    - Fabric
+    - Google-Maps-iOS-SDK
+    - MBProgressHUD
+    - MWPhotoBrowser
+    - RESideMenu
+    - RSKImageCropper
+    - SDWebImage
+    - SHSPhoneComponent
+    - SVPullToRefresh
+    - TTTAttributedLabel
 
-COCOAPODS: 0.39.0
+SPEC CHECKSUMS:
+  AFNetworking: 96ac9bf3eda33582701cb1fcc5b896aa1e20311e
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
+  Google-Maps-iOS-SDK: 7f89cc1edb3ca239a410e5bc83cd1e060db3a289
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  RSKImageCropper: 50d5a3e4160f0309b14d75b89d5ae2f496d56e0d
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SHSPhoneComponent: fa4401ae7c34511669287e62739b3da7c4c49807
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+
+PODFILE CHECKSUM: 18ab5a3a6cb36dbdccbcdcd9837d7a21b048a627
+
+COCOAPODS: 1.5.2

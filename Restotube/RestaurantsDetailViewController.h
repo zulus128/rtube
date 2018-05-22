@@ -11,7 +11,7 @@
 #import "Restaurants.h"
 #import "Reports.h"
 #import "ReviewTableViewCell.h"
-#import <MWPhotoBrowser.h>
+#import "MWPhotoBrowser.h"
 
 @interface RestaurantsDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate, ReviewCellDelegate, MWPhotoBrowserDelegate>
 {

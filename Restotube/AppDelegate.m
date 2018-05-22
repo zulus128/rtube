@@ -17,6 +17,7 @@
 #import <Crashlytics/Crashlytics.h>
 
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_ 1
 
 @interface AppDelegate ()
 

@@ -1,5 +1,6 @@
 // AFHTTPSessionManager.m
-// Copyright (c) 2011–2015 Alamofire Software Foundation (http://alamofire.org/)
+//
+// Copyright (c) 2013-2014 AFNetworking (http://afnetworking.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -46,7 +47,6 @@
 @end
 
 @implementation AFHTTPSessionManager
-@dynamic responseSerializer;
 
 + (instancetype)manager {
     return [[[self class] alloc] initWithBaseURL:nil];
@@ -109,7 +109,6 @@
                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    parameters = [self appendCity:parameters];
     NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"GET" URLString:URLString parameters:parameters success:success failure:failure];
 
     [dataTask resume];
@@ -122,8 +121,6 @@
                        success:(void (^)(NSURLSessionDataTask *task))success
                        failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    parameters = [self appendCity:parameters];
-    
     NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"HEAD" URLString:URLString parameters:parameters success:^(NSURLSessionDataTask *task, __unused id responseObject) {
         if (success) {
             success(task);
@@ -135,38 +132,11 @@
     return dataTask;
 }
 
-+ (NSString *)city
-{
-    NSString *city = [[NSUserDefaults standardUserDefaults] objectForKey:@"kCity"];
-    if (city == nil)
-    {
-        return @"moscow";
-    }
-    return city;
-}
-
-- (NSDictionary *)appendCity:(NSDictionary *)parameters
-{
-    NSMutableDictionary *dict;
-    if (parameters)
-    {
-        dict = [NSMutableDictionary dictionaryWithDictionary:parameters];
-    }
-    else
-    {
-        dict = [NSMutableDictionary new];
-    }
-    [dict setObject:[self.class city] forKey:@"user_city"];
-    return dict;
-}
-
 - (NSURLSessionDataTask *)POST:(NSString *)URLString
                     parameters:(id)parameters
                        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                        failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    parameters = [self appendCity:parameters];
-
     NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"POST" URLString:URLString parameters:parameters success:success failure:failure];
 
     [dataTask resume];
@@ -217,8 +187,6 @@
                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    parameters = [self appendCity:parameters];
-    
     NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"PUT" URLString:URLString parameters:parameters success:success failure:failure];
 
     [dataTask resume];
@@ -231,7 +199,6 @@
                         success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                         failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    parameters = [self appendCity:parameters];
     NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"PATCH" URLString:URLString parameters:parameters success:success failure:failure];
 
     [dataTask resume];
@@ -244,7 +211,6 @@
                          success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                          failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    parameters = [self appendCity:parameters];
     NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"DELETE" URLString:URLString parameters:parameters success:success failure:failure];
 
     [dataTask resume];
@@ -346,7 +312,7 @@
 
     HTTPClient.requestSerializer = [self.requestSerializer copyWithZone:zone];
     HTTPClient.responseSerializer = [self.responseSerializer copyWithZone:zone];
-
+    
     return HTTPClient;
 }
 
